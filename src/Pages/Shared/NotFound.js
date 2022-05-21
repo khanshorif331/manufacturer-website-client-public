@@ -1,9 +1,10 @@
 import React from 'react'
+import notFound from '../../assets/404.gif'
 
 const NotFound = () => {
 	return (
 		<div>
-			<h1>404 Page Not Found</h1>
+			<img className='w-full min-h-fit md:h-screen' src={notFound} alt='' />
 		</div>
 	)
 }
