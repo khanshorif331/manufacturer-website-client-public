@@ -3,6 +3,11 @@ import './App.css'
 import img from '../src/assets/preloader.gif'
 import img1 from '../src/assets/load.gif'
 import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
+import NotFound from './Pages/Shared/NotFound'
+import Navbar from './Pages/Shared/Navbar'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -20,8 +25,14 @@ function App() {
 				</div>
 			)}
 
-			<h1 className='text-red-500'>Hello World!</h1>
-			<button class='btn btn-primary'>Button</button>
+			<Navbar>
+				<Routes>
+					<Route path='/' element={<Home></Home>}></Route>
+					<Route path='/home' element={<Home></Home>}></Route>
+					<Route path='/login' element={<Login></Login>}></Route>
+					<Route path='*' element={<NotFound></NotFound>}></Route>
+				</Routes>
+			</Navbar>
 		</div>
 	)
 }
