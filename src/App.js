@@ -19,11 +19,11 @@ function App() {
 	}, [])
 	return (
 		<div>
-			{loading && (
+			{/* {loading && (
 				<div className='flex justify-center items-center h-screen w-full bg-black'>
 					<img src={img1} alt='' />
 				</div>
-			)}
+			)} */}
 
 			<Navbar>
 				<Routes>
