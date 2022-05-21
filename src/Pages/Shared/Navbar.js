@@ -10,6 +10,12 @@ const Navbar = ({ children }) => {
 			<li>
 				<NavLink to='blogs'>Blogs</NavLink>
 			</li>
+			<li>
+				<NavLink to='portfolio'>My PortFolio</NavLink>
+			</li>
+			<li>
+				<NavLink to='login'>Login</NavLink>
+			</li>
 		</>
 	)
 	return (

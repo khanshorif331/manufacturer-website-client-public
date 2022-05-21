@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login'
 import NotFound from './Pages/Shared/NotFound'
 import Navbar from './Pages/Shared/Navbar'
 import Blogs from './Pages/Blogs/Blogs'
+import MyPortFolio from './Pages/MyPortFolio/MyPortFolio'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -30,6 +31,10 @@ function App() {
 					<Route path='/' element={<Home></Home>}></Route>
 					<Route path='/home' element={<Home></Home>}></Route>
 					<Route path='/blogs' element={<Blogs></Blogs>}></Route>
+					<Route
+						path='/portfolio'
+						element={<MyPortFolio></MyPortFolio>}
+					></Route>
 					<Route path='/login' element={<Login></Login>}></Route>
 					<Route path='*' element={<NotFound></NotFound>}></Route>
 				</Routes>
