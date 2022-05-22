@@ -5,7 +5,7 @@ const Products = () => {
 		<div>
 			<h1 className='text-center text-2xl font-bold mt-16  text-white'>
 				<span className='bg-primary border-l-[4px] border-r-[4px] border-red-500 px-6 py-2 rounded-lg'>
-					Product We Supply
+					Products We Supply
 				</span>
 			</h1>
 			<div className='bg-black my-16'>
