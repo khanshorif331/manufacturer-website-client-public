@@ -1,10 +1,11 @@
 import React from 'react'
+import './Product.css'
 
 const Product = ({ product }) => {
 	// console.log(product)
 	return (
 		<div>
-			<div data-aos='fade-left' class='card bg-base-100 shadow-xl '>
+			<div class='card bg-base-100 shadow-xl anime'>
 				<figure class='px-10 pt-10'>
 					<img
 						src='https://api.lorem.space/image/shoes?w=400&h=225'
