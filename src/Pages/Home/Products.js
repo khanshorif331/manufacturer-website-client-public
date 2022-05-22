@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Product from './Product'
 
 const Products = () => {
+	const [products, setProducts] = useState([])
+	useEffect(() => {
+		fetch('products.json')
+			.then(res => res.json())
+			.then(data => setProducts(data))
+	}, [])
 	return (
 		<div>
 			<h1 className='text-center text-2xl font-bold mt-16  text-white'>
@@ -8,23 +15,10 @@ const Products = () => {
 					Products We Supply
 				</span>
 			</h1>
-			<div className='bg-black my-16'>
-				<div class='card w-96 bg-base-100 shadow-xl'>
-					<figure class='px-10 pt-10'>
-						<img
-							src='https://api.lorem.space/image/shoes?w=400&h=225'
-							alt='Shoes'
-							class='rounded-xl'
-						/>
-					</figure>
-					<div class='card-body items-center text-center'>
-						<h2 class='card-title'>Shoes!</h2>
-						<p>If a dog chews shoes whose shoes does he choose?</p>
-						<div class='card-actions'>
-							<button class='btn btn-primary'>Buy Now</button>
-						</div>
-					</div>
-				</div>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10 my-12'>
+				{products.map(product => (
+					<Product key={product._id} product={product}></Product>
+				))}
 			</div>
 		</div>
 	)
