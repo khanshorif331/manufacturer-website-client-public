@@ -9,6 +9,8 @@ import NotFound from './Pages/Shared/NotFound'
 import Navbar from './Pages/Shared/Navbar'
 import Blogs from './Pages/Blogs/Blogs'
 import MyPortFolio from './Pages/MyPortFolio/MyPortFolio'
+import Signup from './Pages/Login/Signup'
+import ResetPassword from './Pages/Login/ResetPassword'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -36,6 +38,11 @@ function App() {
 						element={<MyPortFolio></MyPortFolio>}
 					></Route>
 					<Route path='/login' element={<Login></Login>}></Route>
+					<Route path='/signup' element={<Signup></Signup>}></Route>
+					<Route
+						path='/resetPass'
+						element={<ResetPassword></ResetPassword>}
+					></Route>
 					<Route path='*' element={<NotFound></NotFound>}></Route>
 				</Routes>
 			</Navbar>
