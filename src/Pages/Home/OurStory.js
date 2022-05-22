@@ -14,9 +14,35 @@ const OurStory = () => {
 					its staff and numbers swelling accordingly.
 				</p>
 			</div>
-			<div className='grid grid-cols-4 bg-red-500'>
-				<div className='col-span-2'>
-					<p>hello</p>
+			<div className='grid grid-cols-4 p-10'>
+				<div className='col-span-2 px-4'>
+					<div>
+						<h1 className='text-2xl font-bold'>About</h1>
+						<p>
+							We do only what we are great on.If we tackle a prooject you
+							project you can be 100% sure that it will be delivered
+							right on time within the set budget limits and orders at
+							the toop level.
+						</p>
+					</div>
+					<div className='my-10'>
+						<h1 className='text-2xl font-bold'>Our Mission</h1>
+						<p>
+							We do only what we are great on.If we tackle a prooject you
+							project you can be 100% sure that it will be delivered
+							right on time within the set budget limits and orders at
+							the toop level.
+						</p>
+					</div>
+					<div>
+						<h1 className='text-2xl font-bold'>Our Goals</h1>
+						<p>
+							We do only what we are great on.If we tackle a prooject you
+							project you can be 100% sure that it will be delivered
+							right on time within the set budget limits and orders at
+							the toop level.
+						</p>
+					</div>
 				</div>
 				<div>
 					<p>hello</p>
