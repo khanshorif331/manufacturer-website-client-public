@@ -2,8 +2,8 @@ import React from 'react'
 
 const BussinessSummery = () => {
 	return (
-		<div className='w-full flex'>
-			<div className='stats stats-vertical md:stats-horizontal lg:stats-horizontal shadow mx-auto '>
+		<section className='w-full flex bg-warning'>
+			<div className='stats stats-vertical md:stats-horizontal lg:stats-horizontal shadow mx-auto bg-warning py-5'>
 				<div className='stat'>
 					<div className='stat-figure text-secondary'>
 						<svg
@@ -87,7 +87,7 @@ const BussinessSummery = () => {
 					<div className='stat-desc'>↘︎ 90 (14%)</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 
