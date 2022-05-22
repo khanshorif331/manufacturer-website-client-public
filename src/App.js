@@ -11,6 +11,7 @@ import Blogs from './Pages/Blogs/Blogs'
 import MyPortFolio from './Pages/MyPortFolio/MyPortFolio'
 import Signup from './Pages/Login/Signup'
 import ResetPassword from './Pages/Login/ResetPassword'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -46,6 +47,7 @@ function App() {
 					<Route path='*' element={<NotFound></NotFound>}></Route>
 				</Routes>
 			</Navbar>
+			<ToastContainer></ToastContainer>
 		</div>
 	)
 }
