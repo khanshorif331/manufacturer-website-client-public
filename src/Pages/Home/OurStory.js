@@ -14,7 +14,8 @@ const OurStory = () => {
 					its staff and numbers swelling accordingly.
 				</p>
 			</div>
-			<div className='grid grid-cols-4 p-10'>
+			{/* grid section starts */}
+			<div className='grid grid-cols-1 md:grid-cols-4 p-10'>
 				<div className='col-span-2 px-4'>
 					<div>
 						<h1 className='text-2xl font-bold'>About</h1>
@@ -44,11 +45,34 @@ const OurStory = () => {
 						</p>
 					</div>
 				</div>
+				{/* need to add a photo */}
 				<div>
 					<p>hello</p>
 				</div>
-				<div>
-					<p>hello</p>
+
+				<div className='px-4 mt-4 md:mt-0'>
+					<div>
+						<h1 className='text-2xl font-bold'>Reliability</h1>
+						<p>
+							Our team has a cutting edge quality management system which
+							ensures high quality standards at all sites.
+						</p>
+					</div>
+					<div className='my-10'>
+						<h1 className='text-2xl font-bold'>Expertise</h1>
+						<p>
+							We have a team of specialists capable of maximizing the
+							result and delivering the project of any complexity and
+							scope.
+						</p>
+					</div>
+					<div>
+						<h1 className='text-2xl font-bold'>Quality</h1>
+						<p>
+							The control mechnism allows secure and integrated
+							monitoring of all stages of the work.
+						</p>
+					</div>
 				</div>
 			</div>
 		</section>
