@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import auth from '../../firebase.init'
 
 const ResetPassword = () => {
@@ -8,23 +8,10 @@ const ResetPassword = () => {
 	const [sendPasswordResetEmail, sending, error] =
 		useSendPasswordResetEmail(auth)
 
-	// if (error) {
-	// 	return (
-	// 		<div>
-	// 			<p>Error: {error.message}</p>
-	// 		</div>
-	// 	)
-	// }
-
-	// useEffect(()=>{
-
-	// },[email])
-	// const handleResetPass = e => {
-	//     e.preventDefault()
-	//     setEmail(e.target.email.value)
-
-	//     console.log('form submitted', email)
-	// }
+	const handleReset = async () => {
+		await sendPasswordResetEmail(email)
+		alert('Email sent')
+	}
 
 	return (
 		<div className='w-full min-h-[80%] bg-indigo-300'>
@@ -38,18 +25,16 @@ const ResetPassword = () => {
 						value={email}
 						onChange={e => setEmail(e.target.value)}
 						class='input input-bordered input-primary w-full max-w-xs mt-6'
-						required
 					/>
 					<button
-						onClick={async () => {
-							await sendPasswordResetEmail(email)
-							toast('Sent email')
-						}}
+						onClick={handleReset}
 						className='btn btn-primary mt-6'
+						disabled={!email}
 					>
 						Submit
 					</button>
 					{error && <p className='text-red-800'>{error?.message}</p>}
+					<ToastContainer></ToastContainer>
 				</div>
 			</div>
 		</div>
