@@ -2,8 +2,8 @@ import React from 'react'
 
 const BussinessSummery = () => {
 	return (
-		<div className='border-2 w-full flex bg-secondary'>
-			<div class='stats stats-vertical md:stats-horizontal lg:stats-horizontal shadow border-2 mx-auto'>
+		<div className='w-full flex'>
+			<div class='stats stats-vertical md:stats-horizontal lg:stats-horizontal shadow border-2 mx-auto '>
 				<div class='stat'>
 					<div class='stat-figure text-secondary'>
 						<svg
@@ -58,7 +58,7 @@ const BussinessSummery = () => {
 								stroke-linecap='round'
 								stroke-linejoin='round'
 								stroke-width='2'
-								d='M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
+								d='M13 10V3L4 14h7v7l9-11h-7z'
 							></path>
 						</svg>
 					</div>
@@ -67,6 +67,21 @@ const BussinessSummery = () => {
 					<div class='stat-desc'>↘︎ 90 (14%)</div>
 				</div>
 				<div class='stat'>
+					<div class='stat-figure text-secondary'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='none'
+							viewBox='0 0 24 24'
+							class='inline-block w-8 h-8 stroke-current'
+						>
+							<path
+								stroke-linecap='round'
+								stroke-linejoin='round'
+								stroke-width='2'
+								d='M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
+							></path>
+						</svg>
+					</div>
 					<div class='stat-title'>Annual Revenue</div>
 					<div class='stat-value'>120M+</div>
 					<div class='stat-desc'>↘︎ 90 (14%)</div>
