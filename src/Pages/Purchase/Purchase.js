@@ -9,6 +9,7 @@ const Purchase = () => {
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
 	const [buyQuantity, setBuyQuantity] = useState('')
+	const [totalPrize, setTotalPrize] = useState(0)
 
 	useEffect(() => {
 		fetch(`http://localhost:5000/purchase/${id}`)
@@ -18,8 +19,14 @@ const Purchase = () => {
 				setBuyQuantity(data.minOrder)
 			})
 	}, [id])
+
+	useEffect(() => {
+		setTotalPrize(buyQuantity * product.price)
+	}, [buyQuantity])
+
 	const handleSubmit = e => {
 		e.preventDefault()
+
 		if (buyQuantity < product.minOrder) {
 			return toast.error('cannot buy')
 		}
@@ -28,6 +35,25 @@ const Purchase = () => {
 				'Please enter a valid quantity.Available quantity exceeds.!!'
 			)
 		}
+
+		const order = {
+			name: user.displayName,
+			email: user.email,
+			address: e.target.address.value,
+			phone: e.target.phone.value,
+			buyQuantity,
+			totalPrize,
+		}
+		fetch('http://localhost:5000/order', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(order),
+		})
+			.then(res => res.json())
+			.then(data => console.log(data))
+
 		toast.success(
 			`Congratulations ${user.displayName}!Your order is succesfull.`
 		)
@@ -48,6 +74,7 @@ const Purchase = () => {
 					<p>Price :$ {product.price}/pc</p>
 					<p>Min Order : {product.minOrder} pcs</p>
 					<p>Available Quantity : {product.availableQuantiity} pcs</p>
+					<p>Total Price : $ {totalPrize}/= </p>
 				</div>
 				{/* form section starts here*/}
 				<div className='mx-auto'>
@@ -76,6 +103,7 @@ const Purchase = () => {
 							</label>
 							<input
 								type='text'
+								name='address'
 								placeholder='Your Address'
 								class='input input-bordered w-full max-w-xs'
 								required
@@ -89,6 +117,7 @@ const Purchase = () => {
 							</label>
 							<input
 								type='text'
+								name='phone'
 								placeholder='Your Mobile Number'
 								class='input input-bordered w-full max-w-xs'
 								required
