@@ -11,7 +11,7 @@ const Product = ({ product }) => {
 	}
 	return (
 		<div>
-			<div className='card bg-base-100 shadow-xl anime'>
+			<div className='card bg-base-100 shadow-xl anime md:hover:drop-shadow-xl border-red-300 border-2'>
 				<figure className='px-5 pt-5'>
 					<img src={img} alt={name} className='rounded-xl' />
 				</figure>
