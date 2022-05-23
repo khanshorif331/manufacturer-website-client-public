@@ -13,6 +13,7 @@ import Signup from './Pages/Login/Signup'
 import ResetPassword from './Pages/Login/ResetPassword'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
+import Purchase from './Pages/Purchase/Purchase'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -35,6 +36,10 @@ function App() {
 					<Route path='/' element={<Home></Home>}></Route>
 					<Route path='/home' element={<Home></Home>}></Route>
 					<Route path='/blogs' element={<Blogs></Blogs>}></Route>
+					<Route
+						path='/purchase/:id'
+						element={<Purchase></Purchase>}
+					></Route>
 					<Route
 						path='/portfolio'
 						element={<MyPortFolio></MyPortFolio>}
