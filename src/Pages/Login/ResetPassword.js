@@ -10,7 +10,7 @@ const ResetPassword = () => {
 
 	const handleReset = async () => {
 		await sendPasswordResetEmail(email)
-		alert('Email sent')
+		toast('Email sent')
 	}
 
 	return (

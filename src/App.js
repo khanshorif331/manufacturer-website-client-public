@@ -11,6 +11,7 @@ import Blogs from './Pages/Blogs/Blogs'
 import MyPortFolio from './Pages/MyPortFolio/MyPortFolio'
 import Signup from './Pages/Login/Signup'
 import ResetPassword from './Pages/Login/ResetPassword'
+import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 
 function App() {
