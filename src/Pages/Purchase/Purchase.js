@@ -8,14 +8,16 @@ const Purchase = () => {
 	const [user] = useAuthState(auth)
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
-	const [buyQuantity, setBuyQuantity] = useState()
+	const [buyQuantity, setBuyQuantity] = useState('')
 
 	useEffect(() => {
 		fetch(`http://localhost:5000/purchase/${id}`)
 			.then(res => res.json())
-			.then(data => setProduct(data))
+			.then(data => {
+				setProduct(data)
+				setBuyQuantity(data.minOrder)
+			})
 	}, [id])
-	console.log(typeof product.availableQuantiity, 'available')
 	const handleSubmit = e => {
 		e.preventDefault()
 		if (buyQuantity < product.minOrder) {
@@ -39,7 +41,7 @@ const Purchase = () => {
 			<p className='text-center'>
 				Plese provide neccessary information to complete your order.
 			</p>
-			<div className='grid grid-cols-1 md:grid-cols-2 place-content-center min-h-[80%] border-2 mt-4 w-full md:w-1/2 mx-auto'>
+			<div className='grid grid-cols-1 md:grid-cols-2 place-content-center min-h-[80%] border-2 mt-4 w-full md:w-1/2 mx-auto py-4 rounded-lg'>
 				<div className='mx-auto text-center leading-loose my-auto'>
 					<img className='w-1/2 mx-auto' src={product.img} alt='' />
 					<p>{product.name}</p>
@@ -99,12 +101,19 @@ const Purchase = () => {
 							<input
 								onChange={e => setBuyQuantity(Number(e.target.value))}
 								type='number'
+								value={buyQuantity}
 								placeholder='Enter Quantity'
 								class='input input-bordered w-full max-w-xs'
 								required
 							/>
 						</div>
-						<button className='btn btn-primary'>
+						<button
+							disabled={
+								buyQuantity < product.minOrder ||
+								buyQuantity > product.availableQuantiity
+							}
+							className='btn btn-primary'
+						>
 							<input type='submit' value='Confirm Order' />
 						</button>
 					</form>
