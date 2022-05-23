@@ -1,5 +1,6 @@
 import React from 'react'
 import './Product.css'
+// import hammer from '../../../assets/hammer (1).png'
 
 const Product = ({ product }) => {
 	// console.log(product)
@@ -8,7 +9,8 @@ const Product = ({ product }) => {
 			<div className='card bg-base-100 shadow-xl anime'>
 				<figure className='px-10 pt-10'>
 					<img
-						src='https://api.lorem.space/image/shoes?w=400&h=225'
+						src={product.img}
+						// src='https://api.lorem.space/image/shoes?w=400&h=225'
 						alt='Shoes'
 						className='rounded-xl'
 					/>

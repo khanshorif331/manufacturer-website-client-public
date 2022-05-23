@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import auth from '../../firebase.init'
 
 const ResetPassword = () => {
 	const [email, setEmail] = useState('')
-	const [sendPasswordResetEmail, sending, error] =
-		useSendPasswordResetEmail(auth)
+	const [sendPasswordResetEmail, error] = useSendPasswordResetEmail(auth)
 
 	const handleReset = async () => {
 		await sendPasswordResetEmail(email)
@@ -34,7 +33,6 @@ const ResetPassword = () => {
 						Submit
 					</button>
 					{error && <p className='text-red-800'>{error?.message}</p>}
-					<ToastContainer></ToastContainer>
 				</div>
 			</div>
 		</div>
