@@ -52,12 +52,14 @@ const Purchase = () => {
 			body: JSON.stringify(order),
 		})
 			.then(res => res.json())
-			.then(data => console.log(data))
-
-		toast.success(
-			`Congratulations ${user.displayName}!Your order is succesfull.`
-		)
-		e.target.reset()
+			.then(data => {
+				if (data.insertedId) {
+					toast.success(
+						`Congratulations ${user.displayName}!Your order is succesfull.`
+					)
+					e.target.reset()
+				}
+			})
 	}
 	return (
 		<div>
