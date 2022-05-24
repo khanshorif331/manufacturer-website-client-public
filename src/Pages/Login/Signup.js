@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
 	useCreateUserWithEmailAndPassword,
 	useSignInWithGoogle,
@@ -7,8 +7,8 @@ import {
 import auth from '../../firebase.init'
 import { useForm } from 'react-hook-form'
 import Loading from '../Shared/Loading'
-import { Link, useNavigate } from 'react-router-dom'
-// import useToken from '../../hooks/useToken'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useToken from '../../hooks/useToken'
 
 const Signup = () => {
 	const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
@@ -17,9 +17,11 @@ const Signup = () => {
 		useCreateUserWithEmailAndPassword(auth)
 
 	const [updateProfile, updating, updateError] = useUpdateProfile(auth)
-	// const [token] = useToken(user || gUser)
+	const [token] = useToken(user || gUser)
 
 	const navigate = useNavigate()
+	const location = useLocation()
+	let from = location.state?.from?.pathname || '/'
 
 	const {
 		register,
@@ -35,6 +37,11 @@ const Signup = () => {
 		console.log('update done')
 		// navigate('/appointment')
 	}
+	useEffect(() => {
+		if (token) {
+			navigate(from, { replace: true })
+		}
+	}, [token, from, navigate])
 
 	if (loading || gLoading || updating) {
 		return <Loading></Loading>
@@ -50,10 +57,16 @@ const Signup = () => {
 		)
 	}
 
-	if (user || gUser) {
-		navigate('/')
-		console.log(user || gUser)
-	}
+	// if (user || gUser) {
+	// 	navigate('/')
+	// 	console.log(user || gUser)
+	// }
+
+	// useEffect(() => {
+	// 	if (token) {
+	// 		navigate(from, { replace: true })
+	// 	}
+	// }, [token, from, navigate])
 
 	// if (token) {
 	// 	navigate('/appointment')
