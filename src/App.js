@@ -14,6 +14,7 @@ import ResetPassword from './Pages/Login/ResetPassword'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 import Purchase from './Pages/Purchase/Purchase'
+import RequireAuth from './Pages/Login/RequireAuth'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -38,7 +39,11 @@ function App() {
 					<Route path='/blogs' element={<Blogs></Blogs>}></Route>
 					<Route
 						path='/purchase/:id'
-						element={<Purchase></Purchase>}
+						element={
+							<RequireAuth>
+								<Purchase></Purchase>
+							</RequireAuth>
+						}
 					></Route>
 					<Route
 						path='/portfolio'

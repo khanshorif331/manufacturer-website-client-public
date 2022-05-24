@@ -9,7 +9,8 @@ const Purchase = () => {
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
 	const [buyQuantity, setBuyQuantity] = useState('')
-	const [totalPrize, setTotalPrize] = useState(0)
+	const [totalPrize, setTotalPrize] = useState('')
+	const [error, setError] = useState('')
 
 	useEffect(() => {
 		fetch(`http://localhost:5000/purchase/${id}`)
@@ -22,19 +23,26 @@ const Purchase = () => {
 
 	useEffect(() => {
 		setTotalPrize(buyQuantity * product.price)
-	}, [buyQuantity])
-
+		if (buyQuantity < product.minOrder) {
+			return setError(`You can't order less than ${product.minOrder} pcs !`)
+		}
+		if (buyQuantity > product.availableQuantiity) {
+			return setError('You cannot buy more than availability!')
+		} else {
+			setError('')
+		}
+	}, [buyQuantity, error])
 	const handleSubmit = e => {
 		e.preventDefault()
 
-		if (buyQuantity < product.minOrder) {
-			return toast.error('cannot buy')
-		}
-		if (buyQuantity > product.availableQuantiity) {
-			return toast.error(
-				'Please enter a valid quantity.Available quantity exceeds.!!'
-			)
-		}
+		// if (buyQuantity < product.minOrder) {
+		// 	return toast.error('cannot buy')
+		// }
+		// if (buyQuantity > product.availableQuantiity) {
+		// 	return toast.error(
+		// 		'Please enter a valid quantity.Available quantity exceeds.!!'
+		// 	)
+		// }
 
 		const order = {
 			name: user.displayName,
@@ -81,39 +89,41 @@ const Purchase = () => {
 				{/* form section starts here*/}
 				<div className='mx-auto'>
 					<form onSubmit={handleSubmit}>
-						<div class='form-control w-full max-w-xs'>
+						<div className='form-control w-full max-w-xs'>
 							<input
 								type='text'
 								placeholder='Type here'
-								class='input input-bordered w-full max-w-xs'
+								className='input input-bordered w-full max-w-xs'
 								value={user?.displayName}
 								disabled
 							/>
 						</div>
-						<div class='form-control w-full max-w-xs'>
+						<div className='form-control w-full max-w-xs'>
 							<input
 								type='text'
 								placeholder='Type here'
-								class='input input-bordered w-full max-w-xs'
+								className='input input-bordered w-full max-w-xs'
 								value={user?.email}
 								disabled
 							/>
 						</div>
-						<div class='form-control w-full max-w-xs'>
-							<label class='label'>
-								<span class='label-text'>What is your address?</span>
+						<div className='form-control w-full max-w-xs'>
+							<label className='label'>
+								<span className='label-text'>
+									What is your address?
+								</span>
 							</label>
 							<input
 								type='text'
 								name='address'
 								placeholder='Your Address'
-								class='input input-bordered w-full max-w-xs'
+								className='input input-bordered w-full max-w-xs'
 								required
 							/>
 						</div>
-						<div class='form-control w-full max-w-xs'>
-							<label class='label'>
-								<span class='label-text'>
+						<div className='form-control w-full max-w-xs'>
+							<label className='label'>
+								<span className='label-text'>
 									What is your Mobile Number?
 								</span>
 							</label>
@@ -121,29 +131,30 @@ const Purchase = () => {
 								type='text'
 								name='phone'
 								placeholder='Your Mobile Number'
-								class='input input-bordered w-full max-w-xs'
+								className='input input-bordered w-full max-w-xs'
 								required
 							/>
 						</div>
-						<div class='form-control w-full max-w-xs'>
-							<label class='label'>
-								<span class='label-text'>How much to buy?</span>
+						<div className='form-control w-full max-w-xs'>
+							<label className='label'>
+								<span className='label-text'>How much to buy?</span>
 							</label>
 							<input
 								onChange={e => setBuyQuantity(Number(e.target.value))}
 								type='number'
 								value={buyQuantity}
 								placeholder='Enter Quantity'
-								class='input input-bordered w-full max-w-xs'
+								className='input input-bordered w-full max-w-xs'
 								required
 							/>
 						</div>
+						{error ? <p className='text-red-500 my-1'>{error}</p> : ''}
 						<button
 							disabled={
 								buyQuantity < product.minOrder ||
 								buyQuantity > product.availableQuantiity
 							}
-							className='btn btn-primary'
+							className='btn btn-primary cursor-pointer'
 						>
 							<input type='submit' value='Confirm Order' />
 						</button>

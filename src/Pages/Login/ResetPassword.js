@@ -23,7 +23,7 @@ const ResetPassword = () => {
 						placeholder='Enter Your Email'
 						value={email}
 						onChange={e => setEmail(e.target.value)}
-						class='input input-bordered input-primary w-full max-w-xs mt-6'
+						className='input input-bordered input-primary w-full max-w-xs mt-6'
 					/>
 					<button
 						onClick={handleReset}
