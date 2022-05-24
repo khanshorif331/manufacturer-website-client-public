@@ -31,7 +31,7 @@ const Login = () => {
 		signInWithEmailAndPassword(data.email, data.password)
 	}
 	if (user || gUser) {
-		navigate('/')
+		navigate(from, { replace: true })
 	}
 
 	// useEffect(() => {
