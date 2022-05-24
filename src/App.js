@@ -16,6 +16,13 @@ import { ToastContainer } from 'react-toastify'
 import Purchase from './Pages/Purchase/Purchase'
 import RequireAuth from './Pages/Login/RequireAuth'
 import Dashboard from './Pages/Dashboard/Dashboard'
+import MyProfile from './Pages/Dashboard/MyProfile'
+import MyReviews from './Pages/Dashboard/MyReviews'
+import MyOrders from './Pages/Dashboard/MyOrders'
+import MakeAdmin from './Pages/Dashboard/MakeAdmin'
+import AddProduct from './Pages/Dashboard/AddProduct'
+import ManageProducts from './Pages/Dashboard/ManageProducts'
+import ManageOrders from './Pages/Dashboard/ManageOrders'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -53,7 +60,37 @@ function App() {
 								<Dashboard></Dashboard>
 							</RequireAuth>
 						}
-					></Route>
+					>
+						<Route index element={<MyProfile></MyProfile>}></Route>
+						<Route
+							path='review'
+							element={<MyReviews></MyReviews>}
+						></Route>
+						<Route
+							path='myOrders'
+							element={<MyOrders></MyOrders>}
+						></Route>
+						<Route
+							path='makeAdmin'
+							element={<MakeAdmin></MakeAdmin>}
+						></Route>
+						<Route
+							path='addProduct'
+							element={<AddProduct></AddProduct>}
+						></Route>
+						<Route
+							path='manageProducts'
+							element={<ManageProducts></ManageProducts>}
+						></Route>
+						<Route
+							path='manageOrders'
+							element={<ManageOrders></ManageOrders>}
+						></Route>
+						<Route
+							path='myOrders'
+							element={<MyOrders></MyOrders>}
+						></Route>
+					</Route>
 					<Route
 						path='/portfolio'
 						element={<MyPortFolio></MyPortFolio>}
