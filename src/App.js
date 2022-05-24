@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 import Purchase from './Pages/Purchase/Purchase'
 import RequireAuth from './Pages/Login/RequireAuth'
+import Dashboard from './Pages/Dashboard/Dashboard'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -42,6 +43,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<Purchase></Purchase>
+							</RequireAuth>
+						}
+					></Route>
+					<Route
+						path='/dashboard'
+						element={
+							<RequireAuth>
+								<Dashboard></Dashboard>
 							</RequireAuth>
 						}
 					></Route>

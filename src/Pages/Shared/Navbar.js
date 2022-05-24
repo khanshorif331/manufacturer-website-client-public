@@ -21,6 +21,11 @@ const Navbar = ({ children }) => {
 			<li>
 				<NavLink to='portfolio'>My PortFolio</NavLink>
 			</li>
+			{user && (
+				<li>
+					<NavLink to='/dashboard'>Dashboard</NavLink>
+				</li>
+			)}
 			{user ? (
 				<NavLink to='/login'>
 					<button onClick={logout} class='btn btn-ghost'>
