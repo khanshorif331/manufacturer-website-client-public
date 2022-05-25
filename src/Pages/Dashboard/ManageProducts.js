@@ -1,7 +1,6 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import Swal from 'sweetalert2'
-import Products from '../Home/Products'
 import Loading from '../Shared/Loading'
 
 const ManageProducts = () => {
@@ -12,10 +11,8 @@ const ManageProducts = () => {
 	} = useQuery('products', () =>
 		fetch('http://localhost:5000/products').then(res => res.json())
 	)
-	console.log(products)
 
 	const handleDelete = id => {
-		console.log(id)
 		// popup
 		Swal.fire({
 			title: 'Are you sure?',
@@ -75,11 +72,11 @@ const ManageProducts = () => {
 					</thead>
 					<tbody>
 						{products.map((product, index) => (
-							<tr>
+							<tr key={product._id}>
 								<th>{index + 1}</th>
 								<td>
-									<div class='avatar'>
-										<div class='w-16 rounded'>
+									<div className='avatar'>
+										<div className='w-16 rounded'>
 											<img
 												src={product.img}
 												alt='Tailwind-CSS-Avatar-component'
@@ -103,12 +100,6 @@ const ManageProducts = () => {
 									<button className='btn btn-xs'>Update</button>
 								</td>
 							</tr>
-							// <MyOrder
-							// 	key={myOrder._id}
-							// 	myOrder={myOrder}
-							// 	refetch={refetch}
-							// 	index={index}
-							// ></MyOrder>
 						))}
 					</tbody>
 				</table>
