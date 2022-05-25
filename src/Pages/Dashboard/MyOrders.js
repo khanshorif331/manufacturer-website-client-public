@@ -34,13 +34,34 @@ const MyOrders = () => {
 				{' '}
 				Total Orders : {myOrders.length}{' '}
 			</h1>
-			{myOrders.map(myOrder => (
-				<MyOrder
-					key={myOrder._id}
-					myOrder={myOrder}
-					refetch={refetch}
-				></MyOrder>
-			))}
+
+			<div class='overflow-x-auto'>
+				<table class='table table-zebra w-full'>
+					{/* <!-- head --> */}
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>Product Name</th>
+							<th>Price Per Unit</th>
+							<th>Buy Quantity</th>
+							<th>Total Price</th>
+							<th>Status</th>
+							<th>Action</th>
+							<th>Payment</th>
+						</tr>
+					</thead>
+					<tbody>
+						{myOrders.map((myOrder, index) => (
+							<MyOrder
+								key={myOrder._id}
+								myOrder={myOrder}
+								refetch={refetch}
+								index={index}
+							></MyOrder>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	)
 }
