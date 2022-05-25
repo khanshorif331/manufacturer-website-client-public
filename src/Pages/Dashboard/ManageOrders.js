@@ -38,7 +38,7 @@ const ManageOrders = () => {
 							<th>Total Price</th>
 							<th>Status</th>
 							<th>Action</th>
-							<th>Payment</th>
+							<th>Shipping</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,10 +53,6 @@ const ManageOrders = () => {
 					</tbody>
 				</table>
 			</div>
-
-			{/* {orders?.map(order => (
-				<li>{order._id}</li>
-			))} */}
 		</div>
 	)
 }

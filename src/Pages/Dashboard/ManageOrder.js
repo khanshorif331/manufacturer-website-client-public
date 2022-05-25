@@ -1,9 +1,46 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
 
 const ManageOrder = ({ order, refetch, index }) => {
 	console.log(order)
-	const { _id, email, productName, price, buyQuantity, totalPrize } = order
+	const { _id, email, productName, price, buyQuantity, totalPrize, status } =
+		order
+
+	const handleShip = id => {
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#d33',
+			cancelButtonColor: '#3085d6',
+			confirmButtonText: 'Yes, Ship this Order!',
+		}).then(result => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/order/shipped/${id}`, {
+					method: 'PUT',
+				})
+					.then(res => {
+						if (res.status === 403) {
+							toast.error('Failed to make an admin')
+						}
+						return res.json()
+					})
+					.then(data => {
+						if (data.modifiedCount > 0) {
+							refetch()
+						}
+					})
+				Swal.fire(
+					'Order Shipped!',
+					'Successfully Shipped This Order.',
+					'success'
+				)
+			}
+		})
+	}
+
 	const handleDelete = id => {
 		// popup
 		Swal.fire({
@@ -36,14 +73,14 @@ const ManageOrder = ({ order, refetch, index }) => {
 	}
 
 	return (
-		<tr>
+		<tr className='bg-black'>
 			<th>{index + 1}</th>
 			<th>{email}</th>
 			<td>{productName}</td>
 			<td>${price}</td>
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
-			<td>Pending</td>
+			<td>{status === 'shipped' ? 'Shipped' : 'Pending'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
@@ -53,7 +90,13 @@ const ManageOrder = ({ order, refetch, index }) => {
 				</button>
 			</td>
 			<td>
-				<button className='btn btn-xs'>Pay</button>
+				{status === 'shipped' ? (
+					'Shipped'
+				) : (
+					<button onClick={() => handleShip(_id)} className='btn btn-xs'>
+						Ship
+					</button>
+				)}
 			</td>
 		</tr>
 	)
