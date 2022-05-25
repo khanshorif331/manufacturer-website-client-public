@@ -63,6 +63,10 @@ function App() {
 					>
 						<Route index element={<MyProfile></MyProfile>}></Route>
 						<Route
+							path='myProfile'
+							element={<MyProfile></MyProfile>}
+						></Route>
+						<Route
 							path='review'
 							element={<MyReviews></MyReviews>}
 						></Route>
