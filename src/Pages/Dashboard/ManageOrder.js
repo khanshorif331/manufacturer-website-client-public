@@ -1,8 +1,9 @@
+import React from 'react'
 import Swal from 'sweetalert2'
 
-const MyOrder = ({ myOrder, refetch, index }) => {
-	const { _id, productName, price, buyQuantity, totalPrize } = myOrder
-
+const ManageOrder = ({ order, refetch, index }) => {
+	console.log(order)
+	const { _id, email, productName, price, buyQuantity, totalPrize } = order
 	const handleDelete = id => {
 		// popup
 		Swal.fire({
@@ -37,6 +38,7 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 	return (
 		<tr>
 			<th>{index + 1}</th>
+			<th>{email}</th>
 			<td>{productName}</td>
 			<td>${price}</td>
 			<td>{buyQuantity} pcs</td>
@@ -57,4 +59,4 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 	)
 }
 
-export default MyOrder
+export default ManageOrder
