@@ -25,11 +25,15 @@ const MakeAdmin = () => {
 			.then(data => {
 				if (data.modifiedCount > 0) {
 					refetch()
-					toast.success('Successfully made admin')
+					Swal.fire({
+						position: 'center',
+						icon: 'success',
+						title: 'Successfully made an admin',
+						showConfirmButton: true,
+						timer: 2500,
+					})
 				}
-				console.log(data)
 			})
-		console.log(id, email)
 	}
 
 	const handleDelete = id => {
