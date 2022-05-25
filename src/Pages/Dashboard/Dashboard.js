@@ -1,8 +1,7 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import auth from '../../firebase.init'
-import { NavLink } from 'react-router-dom'
 // import useAdmin from '../../hooks/useAdmin'
 
 const Dashboard = () => {
@@ -10,9 +9,13 @@ const Dashboard = () => {
 	const admin = true
 	// const [admin] = useAdmin(user)
 	return (
-		<div class='drawer drawer-mobile'>
-			<input id='dashboard-sidebar' type='checkbox' class='drawer-toggle' />
-			<div class='drawer-content'>
+		<div className='drawer drawer-mobile'>
+			<input
+				id='dashboard-sidebar'
+				type='checkbox'
+				className='drawer-toggle'
+			/>
+			<div className='drawer-content'>
 				<h2 className='text-3xl font-bold text-purple-500 text-center my-4'>
 					Welcome{' '}
 					<span className='text-primary uppercase'>
@@ -23,9 +26,12 @@ const Dashboard = () => {
 				<Outlet></Outlet>
 				{/* <!-- Page content here --> */}
 			</div>
-			<div class='drawer-side'>
-				<label for='dashboard-sidebar' class='drawer-overlay'></label>
-				<ul class='menu p-4 overflow-y-auto w-48 bg-black text-white font-bold'>
+			<div className='drawer-side'>
+				<label
+					htmlFor='dashboard-sidebar'
+					className='drawer-overlay'
+				></label>
+				<ul className='menu  overflow-y-auto w-48 bg-black text-white font-bold p-4 md:pt-10'>
 					{/* <!-- Sidebar content here --> */}
 					<li>
 						<NavLink to='/dashboard/myProfile'>My Profile</NavLink>
