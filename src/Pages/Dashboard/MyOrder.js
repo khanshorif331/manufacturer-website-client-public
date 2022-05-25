@@ -45,13 +45,13 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
-					class='btn btn-xs btn-warning'
+					className='btn btn-xs btn-warning'
 				>
 					Cancel
 				</button>
 			</td>
 			<td>
-				<button class='btn btn-xs'>Pay</button>
+				<button className='btn btn-xs'>Pay</button>
 			</td>
 		</tr>
 	)

@@ -1,16 +1,36 @@
 import React from 'react'
 import { useQuery } from 'react-query'
+import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
 import Loading from '../Shared/Loading'
 
 const MakeAdmin = () => {
 	const url = 'http://localhost:5000/users'
-
 	const {
 		isLoading,
 		refetch,
 		data: users,
 	} = useQuery('users', () => fetch(url).then(res => res.json()))
+
+	const handleAdmin = (id, email) => {
+		fetch(`http://localhost:5000/user/admin/${email}`, {
+			method: 'PUT',
+		})
+			.then(res => {
+				if (res.status === 403) {
+					toast.error('Failed to make an admin')
+				}
+				return res.json()
+			})
+			.then(data => {
+				if (data.modifiedCount > 0) {
+					refetch()
+					toast.success('Successfully made admin')
+				}
+				console.log(data)
+			})
+		console.log(id, email)
+	}
 
 	const handleDelete = id => {
 		// popup
@@ -43,7 +63,6 @@ const MakeAdmin = () => {
 		})
 	}
 
-	console.log(users)
 	if (isLoading) {
 		return <Loading></Loading>
 	}
@@ -54,8 +73,8 @@ const MakeAdmin = () => {
 				Total Users : {users.length}
 			</h1>
 
-			<div class='overflow-x-auto'>
-				<table class='table table-zebra w-full'>
+			<div className='overflow-x-auto'>
+				<table className='table table-zebra w-full'>
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
@@ -68,29 +87,33 @@ const MakeAdmin = () => {
 					</thead>
 					<tbody>
 						{users.map((user, index) => (
-							<tr>
+							<tr key={user._id}>
 								<th>{index + 1}</th>
 								<td>{user._id}</td>
 								<td>{user.email}</td>
 								<td>
 									<button
 										onClick={() => handleDelete(user._id)}
-										class='btn btn-xs btn-warning'
+										className='btn btn-xs btn-warning'
 									>
 										Delete User
 									</button>
 								</td>
 								<td>
-									<button class='btn btn-xs'>Make Admin</button>
+									{user.role === 'admin' ? (
+										'Admin'
+									) : (
+										<button
+											onClick={() =>
+												handleAdmin(user._id, user.email)
+											}
+											className='btn btn-xs'
+										>
+											Make Admin
+										</button>
+									)}
 								</td>
 							</tr>
-
-							// <MyOrder
-							// 	key={myOrder._id}
-							// 	myOrder={myOrder}
-							// 	refetch={refetch}
-							// 	index={index}
-							// ></MyOrder>
 						))}
 					</tbody>
 				</table>
