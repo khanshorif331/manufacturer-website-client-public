@@ -81,6 +81,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
 			<td>{status === 'shipped' ? 'Shipped' : 'Pending'}</td>
+			<td>{status === 'shipped' ? 'Paid' : 'Unpaid'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}

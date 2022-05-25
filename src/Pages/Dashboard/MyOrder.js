@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 
 const MyOrder = ({ myOrder, refetch, index }) => {
-	const { _id, productName, price, buyQuantity, totalPrize } = myOrder
+	const { _id, productName, price, buyQuantity, totalPrize, status } = myOrder
 
 	const handleDelete = id => {
 		// popup
