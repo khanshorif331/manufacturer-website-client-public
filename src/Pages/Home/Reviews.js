@@ -58,9 +58,19 @@ const Reviews = () => {
 						<SwiperSlide key={review._id}>
 							<div className='card max-h-[400px] bg-base-100'>
 								<div className='avatar mx-auto pt-10'>
-									<div className='w-24 mask mask-squircle'>
-										<img src={review?.img} alt='review' />
-									</div>
+									{review?.img ? (
+										<div className='w-24 mask mask-squircle'>
+											<img src={review.img} alt='review' />
+										</div>
+									) : (
+										<div class='avatar placeholder'>
+											<div class='bg-neutral-focus text-neutral-content rounded-full w-24'>
+												<span class='text-3xl'>
+													{review.name.slice(0, 1)}
+												</span>
+											</div>
+										</div>
+									)}
 								</div>
 								<div className='card-body items-center text-center'>
 									<p className='text-2xl font-bold text-primary'>
