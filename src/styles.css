@@ -16,15 +16,15 @@ body {
 
 .swiper {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 300px;
-  height: 400px;
+  height: 350px;
 }
 
 .swiper-slide img {
