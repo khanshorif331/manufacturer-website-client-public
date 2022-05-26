@@ -1,6 +1,5 @@
 // import React from 'react';
 // import React from 'react'
-import React, { useEffect, useRef, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -17,29 +16,23 @@ import { useQuery } from 'react-query'
 import Loading from '../Shared/Loading'
 
 const Reviews = () => {
-	const {
-		isLoading,
-		error,
-		data: reviews,
-	} = useQuery('reviews', () =>
+	const { isLoading, data: reviews } = useQuery('reviews', () =>
 		fetch('http://localhost:5000/reviews').then(res => res.json())
 	)
-	console.log(reviews)
 	if (isLoading) {
 		return <Loading></Loading>
 	}
-	// const [reviews, setReviews] = useState([])
-	// useEffect(() => {
-	// 	fetch('http://localhost:5000/reviews')
-	// 		.then(res => res.json())
-	// 		.then(data => console.log(data))
-	// }, [])
-
 	return (
 		<div>
-			<h1 className='text-center text-3xl bg-primary text-white rounded-md py-2 w-full md:w-1/2 mx-auto font-bold'>
+			<h1 className='text-center text-3xl bg-primary text-white rounded-md py-2 w-full md:w-1/2 mx-auto font-bold border-r-4 border-red-500 border-l-4'>
 				What People Say About Us
 			</h1>
+			<p className='w-full md:w-1/2 mx-auto text-center mt-5'>
+				We are a company with growing industry.We are serving our clients
+				for many years with love,respect and care.They are also showing us
+				good vibe.So let's have a look of some of our happy clients
+				review.We try to serve our best.
+			</p>
 			<div>
 				<Swiper
 					effect={'coverflow'}
@@ -62,14 +55,14 @@ const Reviews = () => {
 					className='mySwiper'
 				>
 					{reviews.map(review => (
-						<SwiperSlide>
-							<div class='card max-h-[400px] bg-base-100'>
-								<div class='avatar mx-auto pt-10'>
-									<div class='w-24 mask mask-squircle'>
-										<img src={review?.img} />
+						<SwiperSlide key={review._id}>
+							<div className='card max-h-[400px] bg-base-100'>
+								<div className='avatar mx-auto pt-10'>
+									<div className='w-24 mask mask-squircle'>
+										<img src={review?.img} alt='review' />
 									</div>
 								</div>
-								<div class='card-body items-center text-center'>
+								<div className='card-body items-center text-center'>
 									<p className='text-2xl font-bold text-primary'>
 										{review.name}
 									</p>
@@ -77,34 +70,34 @@ const Reviews = () => {
 										{review.profession}
 									</p>
 									<div>
-										<div class='rating rating-sm'>
+										<div className='rating rating-sm'>
 											<input
 												type='radio'
 												name='rating-2'
-												class='mask mask-star-2 bg-orange-400'
+												className='mask mask-star-2 bg-orange-400'
 											/>
 											<input
 												type='radio'
 												name='rating-2'
-												class='mask mask-star-2 bg-orange-400'
+												className='mask mask-star-2 bg-orange-400'
 											/>
 											<input
 												type='radio'
 												name='rating-2'
-												class='mask mask-star-2 bg-orange-400'
+												className='mask mask-star-2 bg-orange-400'
 											/>
 											<input
 												readOnly
 												type='radio'
 												name='rating-2'
-												class='mask mask-star-2 bg-orange-400'
+												className='mask mask-star-2 bg-orange-400'
 												checked={review.rating == 4}
 											/>
 											<input
 												readOnly
 												type='radio'
 												name='rating-2'
-												class='mask mask-star-2 bg-orange-400'
+												className='mask mask-star-2 bg-orange-400'
 												checked={review.rating === 5}
 											/>
 										</div>{' '}
