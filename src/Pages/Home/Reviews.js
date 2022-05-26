@@ -1,6 +1,6 @@
 // import React from 'react';
 // import React from 'react'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -13,14 +13,34 @@ import '../../styles.css'
 
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper'
+import { useQuery } from 'react-query'
+import Loading from '../Shared/Loading'
 
 const Reviews = () => {
+	const {
+		isLoading,
+		error,
+		data: reviews,
+	} = useQuery('reviews', () =>
+		fetch('http://localhost:5000/reviews').then(res => res.json())
+	)
+	console.log(reviews)
+	if (isLoading) {
+		return <Loading></Loading>
+	}
+	// const [reviews, setReviews] = useState([])
+	// useEffect(() => {
+	// 	fetch('http://localhost:5000/reviews')
+	// 		.then(res => res.json())
+	// 		.then(data => console.log(data))
+	// }, [])
+
 	return (
 		<div>
 			<h1 className='text-center text-3xl bg-primary text-white rounded-md py-2 w-full md:w-1/2 mx-auto font-bold'>
 				What People Say About Us
 			</h1>
-			<div className=''>
+			<div>
 				<Swiper
 					effect={'coverflow'}
 					grabCursor={true}
@@ -41,51 +61,60 @@ const Reviews = () => {
 					modules={[Autoplay, EffectCoverflow, Pagination]}
 					className='mySwiper'
 				>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-1.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-2.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-3.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-4.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-5.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-6.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-7.jpg' />
-					</SwiperSlide>
-					<SwiperSlide>
-						<div class='card bg-base-100 shadow-xl'>
-							<figure class='px-10 pt-10'>
-								<img
-									src='https://api.lorem.space/image/shoes?w=400&h=225'
-									alt='Shoes'
-									class='rounded-xl'
-								/>
-							</figure>
-							<div class='card-body items-center text-center'>
-								<h2 class='card-title'>Shoes!</h2>
-								<p>If a dog chews shoes whose shoes does he choose?</p>
-								<div class='card-actions'>
-									<button class='btn btn-primary'>Buy Now</button>
+					{reviews.map(review => (
+						<SwiperSlide>
+							<div class='card max-h-[400px] bg-base-100'>
+								<div class='avatar mx-auto pt-10'>
+									<div class='w-24 mask mask-squircle'>
+										<img src={review?.img} />
+									</div>
+								</div>
+								<div class='card-body items-center text-center'>
+									<p className='text-2xl font-bold text-primary'>
+										{review.name}
+									</p>
+									<p className='text-xl font-bold'>
+										{review.profession}
+									</p>
+									<div>
+										<div class='rating rating-sm'>
+											<input
+												type='radio'
+												name='rating-2'
+												class='mask mask-star-2 bg-orange-400'
+											/>
+											<input
+												type='radio'
+												name='rating-2'
+												class='mask mask-star-2 bg-orange-400'
+											/>
+											<input
+												type='radio'
+												name='rating-2'
+												class='mask mask-star-2 bg-orange-400'
+											/>
+											<input
+												readOnly
+												type='radio'
+												name='rating-2'
+												class='mask mask-star-2 bg-orange-400'
+												checked={review.rating == 4}
+											/>
+											<input
+												readOnly
+												type='radio'
+												name='rating-2'
+												class='mask mask-star-2 bg-orange-400'
+												checked={review.rating === 5}
+											/>
+										</div>{' '}
+										{review.rating}/5
+									</div>
+									<p>{review.review}</p>
 								</div>
 							</div>
-						</div>
-					</SwiperSlide>
-					{/* <SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-8.jpg' />
-					</SwiperSlide> */}
-					{/* <SwiperSlide>
-						<img src='https://swiperjs.com/demos/images/nature-9.jpg' />
-					</SwiperSlide> */}
+						</SwiperSlide>
+					))}
 				</Swiper>
 			</div>
 		</div>
