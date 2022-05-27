@@ -1,7 +1,15 @@
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const MyOrder = ({ myOrder, refetch, index }) => {
-	const { _id, productName, price, buyQuantity, totalPrize, status } = myOrder
+	const { _id, productName, price, buyQuantity, totalPrize, status, paid } =
+		myOrder
+	const navigate = useNavigate()
+
+	const handlePayment = id => {
+		console.log(id, 'payment id')
+		navigate(`dashboard/myOrder/:${id}`)
+	}
 
 	const handleDelete = id => {
 		// popup
@@ -51,7 +59,12 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 				</button>
 			</td>
 			<td>
-				<button className='btn btn-xs'>Pay</button>
+				{!paid && (
+					<Link to={`/dashboard/payment/${_id}`}>
+						<button className='btn btn-xs'>Pay</button>
+					</Link>
+				)}
+				{paid && <span className='text-success'>Paid</span>}
 			</td>
 		</tr>
 	)

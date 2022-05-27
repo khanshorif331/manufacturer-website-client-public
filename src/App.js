@@ -23,6 +23,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin'
 import AddProduct from './Pages/Dashboard/AddProduct'
 import ManageProducts from './Pages/Dashboard/ManageProducts'
 import ManageOrders from './Pages/Dashboard/ManageOrders'
+import Payment from './Pages/Dashboard/Payment'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -65,6 +66,10 @@ function App() {
 						<Route
 							path='myProfile'
 							element={<MyProfile></MyProfile>}
+						></Route>
+						<Route
+							path='payment/:id'
+							element={<Payment></Payment>}
 						></Route>
 						<Route
 							path='review'
