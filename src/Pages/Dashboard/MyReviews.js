@@ -42,8 +42,10 @@ const MyReviews = () => {
 	}
 	return (
 		<div>
-			<h1>My Reviews</h1>
-			<div className='w-1/2 mx-auto border-2'>
+			<h1 className='text-2xl text-primary text-center font-bold'>
+				Give Us Feedback Here
+			</h1>
+			<div className='w-full md:w-1/2 mx-auto border-2 my-6 py-6 border-primary'>
 				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
@@ -102,7 +104,7 @@ const MyReviews = () => {
 							name='rating-2'
 							className='mask mask-star-2 bg-orange-400'
 							value='5'
-							defualtchecked
+							// defualtchecked
 						/>
 					</div>
 

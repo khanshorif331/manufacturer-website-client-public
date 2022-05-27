@@ -111,7 +111,6 @@ const Reviews = () => {
 												checked={review.rating === 5}
 											/>
 										</div>{' '}
-										{review.rating}/5
 									</div>
 									<p>{review.review}</p>
 								</div>
