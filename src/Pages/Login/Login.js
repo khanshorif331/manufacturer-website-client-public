@@ -19,7 +19,6 @@ const Login = () => {
 		handleSubmit,
 	} = useForm()
 	const [token] = useToken(user || gUser)
-	console.log(token)
 
 	let navigate = useNavigate()
 	let location = useLocation()
@@ -36,7 +35,6 @@ const Login = () => {
 
 	useEffect(() => {
 		if (token) {
-			// console.log('hello from token')
 			navigate(from, { replace: true })
 		}
 	}, [token, from, navigate])

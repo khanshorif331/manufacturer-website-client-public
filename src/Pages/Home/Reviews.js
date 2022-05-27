@@ -63,9 +63,9 @@ const Reviews = () => {
 											<img src={review.img} alt='review' />
 										</div>
 									) : (
-										<div class='avatar placeholder'>
-											<div class='bg-neutral-focus text-neutral-content rounded-full w-24'>
-												<span class='text-3xl'>
+										<div className='avatar placeholder'>
+											<div className='bg-neutral-focus text-neutral-content rounded-full w-24'>
+												<span className='text-3xl'>
 													{review.name.slice(0, 1)}
 												</span>
 											</div>

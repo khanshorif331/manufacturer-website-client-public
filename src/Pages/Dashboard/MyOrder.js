@@ -11,7 +11,6 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 		paid,
 		transactionId,
 	} = myOrder
-	console.log(myOrder)
 	const handleDelete = id => {
 		// popup
 		Swal.fire({

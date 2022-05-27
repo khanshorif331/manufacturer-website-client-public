@@ -8,7 +8,6 @@ import Loading from '../Shared/Loading'
 
 const MyProfile = () => {
 	const [user] = useAuthState(auth)
-	console.log(user.photoURL)
 	const email = user.email
 
 	const url = `http://localhost:5000/userInfo?email=${email}`
@@ -17,7 +16,6 @@ const MyProfile = () => {
 		data: userInfo,
 		refetch,
 	} = useQuery('userInfo', () => fetch(url).then(res => res.json()))
-	console.log(userInfo)
 	if (isLoading) {
 		return <Loading></Loading>
 	}
@@ -59,76 +57,76 @@ const MyProfile = () => {
 			<h1 className='text-2xl text-primary font-bold text-center uppercase'>
 				My profile
 			</h1>
-			<div class='hero bg-base-200'>
+			<div className='hero bg-base-200'>
 				{/* update form starts*/}
 				<form
 					onSubmit={handleUpdate}
-					class='hero-content grid grid-cols-1 md:grid-cols-3'
+					className='hero-content grid grid-cols-1 md:grid-cols-3'
 				>
-					<div class='text-center lg:text-left md:col-span-2'>
-						<div class='card  shadow-2xl bg-base-100'>
-							<div class='card-body'>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Phone</span>
+					<div className='text-center lg:text-left md:col-span-2'>
+						<div className='card  shadow-2xl bg-base-100'>
+							<div className='card-body'>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Phone</span>
 									</label>
 									<input
 										type='text'
 										placeholder='Enter Your Mobile Number'
-										class='input input-bordered'
+										className='input input-bordered'
 										name='phone'
 										required
 									/>
 								</div>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Address</span>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Address</span>
 									</label>
 									<input
 										type='text'
 										placeholder='Your Address'
-										class='input input-bordered'
+										className='input input-bordered'
 										name='address'
 										required
 									/>
 								</div>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Profession</span>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Profession</span>
 									</label>
 									<input
 										type='text'
 										placeholder='Enter your profession'
-										class='input input-bordered'
+										className='input input-bordered'
 										name='profession'
 										required
 									/>
 								</div>
-								<div class='form-control mt-6'>
-									<button class='btn btn-primary'>Update</button>
+								<div className='form-control mt-6'>
+									<button className='btn btn-primary'>Update</button>
 								</div>
 							</div>
 						</div>
 					</div>
 					{/* profile info */}
-					<div class='card w-full min-h-[70vh] max-w-sm bg-base-100 shadow-xl'>
+					<div className='card w-full min-h-[70vh] max-w-sm bg-base-100 shadow-xl'>
 						{user.photoURL ? (
-							<div class='avatar mx-auto pt-6'>
-								<div class='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
+							<div className='avatar mx-auto pt-6'>
+								<div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
 									<img src={user.photoURL} alt='img' />
 								</div>
 							</div>
 						) : (
-							<div class='avatar placeholder mx-auto pt-6'>
-								<div class='bg-neutral-focus ring ring-primary ring-offset-base-100 ring-offset-2 text-neutral-content rounded-full w-24'>
-									<span class='text-3xl uppercase'>
+							<div className='avatar placeholder mx-auto pt-6'>
+								<div className='bg-neutral-focus ring ring-primary ring-offset-base-100 ring-offset-2 text-neutral-content rounded-full w-24'>
+									<span className='text-3xl uppercase'>
 										{user.displayName.slice(0, 1)}
 									</span>
 								</div>
 							</div>
 						)}
-						<div class='card-body'>
-							<h2 class='text-2xl font-bold text-primary text-center'>
+						<div className='card-body'>
+							<h2 className='text-2xl font-bold text-primary text-center'>
 								{user?.displayName}
 							</h2>
 							<p className='text-center font-bold uppercase text-secondary'>
@@ -175,9 +173,9 @@ const MyProfile = () => {
 									)}
 								</span>
 							</p>
-							<div class='card-actions justify-center'>
+							<div className='card-actions justify-center'>
 								<Link to='/dashboard/myOrders'>
-									<button class='btn btn-primary w-full block'>
+									<button className='btn btn-primary w-full block'>
 										My Orders
 									</button>
 								</Link>

@@ -34,8 +34,6 @@ const Signup = () => {
 	const onSubmit = async data => {
 		await createUserWithEmailAndPassword(data.email, data.password)
 		await updateProfile({ displayName: data.name })
-		console.log('update done')
-		// navigate('/appointment')
 	}
 	useEffect(() => {
 		if (token) {
@@ -56,21 +54,6 @@ const Signup = () => {
 			</p>
 		)
 	}
-
-	// if (user || gUser) {
-	// 	navigate('/')
-	// 	console.log(user || gUser)
-	// }
-
-	// useEffect(() => {
-	// 	if (token) {
-	// 		navigate(from, { replace: true })
-	// 	}
-	// }, [token, from, navigate])
-
-	// if (token) {
-	// 	navigate('/appointment')
-	// }
 
 	return (
 		<div className='flex h-screen justify-center items-center'>
