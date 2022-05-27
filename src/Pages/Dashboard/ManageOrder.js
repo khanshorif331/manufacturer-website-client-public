@@ -3,8 +3,17 @@ import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
 
 const ManageOrder = ({ order, refetch, index }) => {
-	const { _id, email, productName, price, buyQuantity, totalPrize, status } =
-		order
+	const {
+		_id,
+		email,
+		productName,
+		price,
+		buyQuantity,
+		totalPrize,
+		status,
+		paid,
+		transactionId,
+	} = order
 
 	const handleShip = id => {
 		Swal.fire({
@@ -80,7 +89,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
 			<td>{status === 'shipped' ? 'Shipped' : 'Pending'}</td>
-			<td>{status === 'shipped' ? 'Paid' : 'Unpaid'}</td>
+			<td>{paid ? <span className='text-success'>Paid</span> : 'Unpaid'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
@@ -93,7 +102,11 @@ const ManageOrder = ({ order, refetch, index }) => {
 				{status === 'shipped' ? (
 					'Shipped'
 				) : (
-					<button onClick={() => handleShip(_id)} className='btn btn-xs'>
+					<button
+						disabled={!paid}
+						onClick={() => handleShip(_id)}
+						className='btn btn-xs'
+					>
 						Ship
 					</button>
 				)}

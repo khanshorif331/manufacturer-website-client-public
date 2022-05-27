@@ -1,16 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const MyOrder = ({ myOrder, refetch, index }) => {
-	const { _id, productName, price, buyQuantity, totalPrize, status, paid } =
-		myOrder
-	const navigate = useNavigate()
-
-	const handlePayment = id => {
-		console.log(id, 'payment id')
-		navigate(`dashboard/myOrder/:${id}`)
-	}
-
+	const {
+		_id,
+		productName,
+		price,
+		buyQuantity,
+		totalPrize,
+		paid,
+		transactionId,
+	} = myOrder
+	console.log(myOrder)
 	const handleDelete = id => {
 		// popup
 		Swal.fire({
@@ -49,7 +50,7 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			<td>${price}</td>
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
-			<td>Pending</td>
+			<td>{paid ? <p className='text-success'>Paid</p> : 'Pending'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
@@ -64,7 +65,17 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 						<button className='btn btn-xs'>Pay</button>
 					</Link>
 				)}
-				{paid && <span className='text-success'>Paid</span>}
+				{paid && (
+					<div>
+						<p>
+							<span className='text-success'>Paid</span>
+						</p>
+						<p>
+							Transaction Id:{' '}
+							<span className='text-success'>{transactionId}</span>{' '}
+						</p>
+					</div>
+				)}
 			</td>
 		</tr>
 	)
