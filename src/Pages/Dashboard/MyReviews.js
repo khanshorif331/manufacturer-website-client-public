@@ -45,11 +45,11 @@ const MyReviews = () => {
 			<h1 className='text-2xl text-primary text-center font-bold'>
 				Give Us Feedback Here
 			</h1>
-			<div className='w-full md:w-1/2 mx-auto border-2 my-6 py-6 border-primary'>
+			<div className='w-full md:w-1/2 mx-auto border-2 my-6 py-6 border-primary rounded-md'>
 				<form onSubmit={handleSubmit}>
 					<input
 						type='text'
-						className='input input-bordered input-sm w-1/2 mx-auto block'
+						className='input input-bordered input-sm w-1/2 mx-auto block text-xl font-bold'
 						value={user.displayName}
 						disabled
 					/>

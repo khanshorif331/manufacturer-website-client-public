@@ -3,7 +3,6 @@ import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
 
 const ManageOrder = ({ order, refetch, index }) => {
-	console.log(order)
 	const { _id, email, productName, price, buyQuantity, totalPrize, status } =
 		order
 
