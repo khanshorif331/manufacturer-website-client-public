@@ -2,12 +2,12 @@ import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink, Outlet } from 'react-router-dom'
 import auth from '../../firebase.init'
-// import useAdmin from '../../hooks/useAdmin'
+import useAdmin from '../../hooks/useAdmin'
 
 const Dashboard = () => {
 	const [user] = useAuthState(auth)
-	const admin = true
-	// const [admin] = useAdmin(user)
+	// const admin = true
+	const [admin] = useAdmin(user)
 	return (
 		<div className='drawer drawer-mobile'>
 			<input
@@ -36,7 +36,7 @@ const Dashboard = () => {
 					<li>
 						<NavLink to='/dashboard/myProfile'>My Profile</NavLink>
 					</li>
-					{user && (
+					{user && !admin && (
 						<>
 							<li>
 								<NavLink to='/dashboard/myOrders'>My Orders</NavLink>

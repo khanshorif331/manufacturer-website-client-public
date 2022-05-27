@@ -24,6 +24,7 @@ import AddProduct from './Pages/Dashboard/AddProduct'
 import ManageProducts from './Pages/Dashboard/ManageProducts'
 import ManageOrders from './Pages/Dashboard/ManageOrders'
 import Payment from './Pages/Dashboard/Payment'
+import RequireAdmin from './Pages/Login/RequireAdmin'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -81,19 +82,35 @@ function App() {
 						></Route>
 						<Route
 							path='makeAdmin'
-							element={<MakeAdmin></MakeAdmin>}
+							element={
+								<RequireAdmin>
+									<MakeAdmin></MakeAdmin>
+								</RequireAdmin>
+							}
 						></Route>
 						<Route
 							path='addProduct'
-							element={<AddProduct></AddProduct>}
+							element={
+								<RequireAdmin>
+									<AddProduct></AddProduct>
+								</RequireAdmin>
+							}
 						></Route>
 						<Route
 							path='manageProducts'
-							element={<ManageProducts></ManageProducts>}
+							element={
+								<RequireAdmin>
+									<ManageProducts></ManageProducts>
+								</RequireAdmin>
+							}
 						></Route>
 						<Route
 							path='manageOrders'
-							element={<ManageOrders></ManageOrders>}
+							element={
+								<RequireAdmin>
+									<ManageOrders></ManageOrders>
+								</RequireAdmin>
+							}
 						></Route>
 						<Route
 							path='myOrders'
