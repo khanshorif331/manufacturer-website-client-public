@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
@@ -9,13 +8,9 @@ import Loading from '../Shared/Loading'
 
 const MyProfile = () => {
 	const [user] = useAuthState(auth)
+	console.log(user.photoURL)
 	const email = user.email
-	// const [userInfo, setUserInfo] = useState({})
-	// useEffect(() => {
-	// 	fetch(`http://localhost:5000/user?email=${email}`)
-	// 		.then(res => res.json())
-	// 		.then(data => setUserInfo(data))
-	// }, [email])
+
 	const url = `http://localhost:5000/userInfo?email=${email}`
 	const {
 		isLoading,
@@ -43,7 +38,6 @@ const MyProfile = () => {
 		})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data)
 				if (data.modifiedCount > 0) {
 					Swal.fire({
 						position: 'center',
@@ -58,10 +52,8 @@ const MyProfile = () => {
 					toast('Profile already updated')
 				}
 			})
-		// console.log(updateInfo)
 	}
 
-	// console.log(user)
 	return (
 		<div>
 			<h1 className='text-2xl text-primary font-bold text-center uppercase'>
@@ -120,11 +112,21 @@ const MyProfile = () => {
 					</div>
 					{/* profile info */}
 					<div class='card w-full min-h-[70vh] max-w-sm bg-base-100 shadow-xl'>
-						<div class='avatar mx-auto pt-6'>
-							<div class='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
-								<img src='https://api.lorem.space/image/face?hash=3174' />
+						{user.photoURL ? (
+							<div class='avatar mx-auto pt-6'>
+								<div class='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
+									<img src={user.photoURL} alt='img' />
+								</div>
 							</div>
-						</div>
+						) : (
+							<div class='avatar placeholder mx-auto pt-6'>
+								<div class='bg-neutral-focus ring ring-primary ring-offset-base-100 ring-offset-2 text-neutral-content rounded-full w-24'>
+									<span class='text-3xl uppercase'>
+										{user.displayName.slice(0, 1)}
+									</span>
+								</div>
+							</div>
+						)}
 						<div class='card-body'>
 							<h2 class='text-2xl font-bold text-primary text-center'>
 								{user?.displayName}
