@@ -26,7 +26,7 @@ const MyPortFolio = () => {
 				<p>
 					HTML{' '}
 					<progress
-						class='progress progress-secondary w-56 ml-10'
+						className='progress progress-secondary w-56 ml-10'
 						value='90'
 						max='100'
 					></progress>
@@ -35,7 +35,7 @@ const MyPortFolio = () => {
 				<p>
 					CSS{' '}
 					<progress
-						class='progress progress-secondary w-56 ml-12'
+						className='progress progress-secondary w-56 ml-12'
 						value='80'
 						max='100'
 					></progress>
@@ -44,7 +44,7 @@ const MyPortFolio = () => {
 				<p>
 					JAVASCRIPT{' '}
 					<progress
-						class='progress progress-secondary w-56 mx-'
+						className='progress progress-secondary w-56 mx-'
 						value='70'
 						max='100'
 					></progress>
@@ -53,7 +53,7 @@ const MyPortFolio = () => {
 				<p>
 					REACT{' '}
 					<progress
-						class='progress progress-secondary w-56 ml-8'
+						className='progress progress-secondary w-56 ml-8'
 						value='70'
 						max='100'
 					></progress>
@@ -62,7 +62,7 @@ const MyPortFolio = () => {
 				<p>
 					TAILWIND{' '}
 					<progress
-						class='progress progress-secondary w-56 mx-4'
+						className='progress progress-secondary w-56 mx-4'
 						value='80'
 						max='100'
 					></progress>
@@ -71,7 +71,7 @@ const MyPortFolio = () => {
 				<p>
 					EXPRESS{' '}
 					<progress
-						class='progress progress-secondary w-56 ml-3'
+						className='progress progress-secondary w-56 ml-3'
 						value='70'
 						max='100'
 					></progress>

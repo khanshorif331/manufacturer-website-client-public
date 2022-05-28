@@ -17,9 +17,9 @@ const Contact = () => {
 							width='100%'
 							height='450'
 							style={{ border: '0', borderRadius: '15px' }}
-							allowfullscreen=''
+							allowFullScreen=''
 							loading='lazy'
-							referrerpolicy='no-referrer-when-downgrade'
+							referrerPolicy='no-referrer-when-downgrade'
 						></iframe>
 					</div>
 				</div>
@@ -28,41 +28,41 @@ const Contact = () => {
 						Send Us Email
 					</h1>
 					<div>
-						<div class='card flex-shrink-0 w-full shadow-2xl bg-base-100 py-4'>
-							<div class='card-body'>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Name</span>
+						<div className='card flex-shrink-0 w-full shadow-2xl bg-base-100 py-4'>
+							<div className='card-body'>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Name</span>
 									</label>
 									<input
 										type='text'
 										placeholder='Nour name'
-										class='input input-bordered'
+										className='input input-bordered'
 									/>
 								</div>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Email</span>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Email</span>
 									</label>
 									<input
 										type='text'
 										placeholder='email'
-										class='input input-bordered'
+										className='input input-bordered'
 									/>
 								</div>
-								<div class='form-control'>
-									<label class='label'>
-										<span class='label-text'>Your Message</span>
+								<div className='form-control'>
+									<label className='label'>
+										<span className='label-text'>Your Message</span>
 									</label>
 									<textarea
 										type='text'
 										placeholder='Your Message'
-										class='input input-bordered'
+										className='input input-bordered'
 									/>
 								</div>
 
-								<div class='form-control mt-6'>
-									<button class='btn btn-primary'>Send</button>
+								<div className='form-control mt-6'>
+									<button className='btn btn-primary'>Send</button>
 								</div>
 							</div>
 						</div>

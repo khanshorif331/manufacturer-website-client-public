@@ -10,11 +10,11 @@ const Blogs = () => {
 			<h1 className='text-center text-3xl font-bold text-primary my-4'>
 				Welcome to My Blogs
 			</h1>
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-2'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-2'>
 				<h1 className='text-center text-xl '>
 					How wil you improve the performance of a React Application?
 				</h1>
-				<div class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<div className='  px-4 py-6  hover:bg-black hover:text-white'>
 					We know that react is popular for it's performance and
 					optimization.There are lot of ways to improve performance.If we
 					can follow those things,our react app will improve the
@@ -30,12 +30,12 @@ const Blogs = () => {
 				</div>
 			</div>
 			{/* blog-2 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
 				<h1 className='text-center text-xl '>
 					What are the different ways too manage state in a React
 					Application?
 				</h1>
-				<div class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<div className='  px-4 py-6  hover:bg-black hover:text-white'>
 					Managing state in React app isn't as simple as using usestate oor
 					useReducer.There are different kinds of states and there are a
 					lot of ways to managing thoose states.There are some kinds of
@@ -65,11 +65,11 @@ const Blogs = () => {
 				</div>
 			</div>
 			{/* blog-3 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
 				<h1 className='text-center text-xl '>
 					How does prototypical inheritence works??
 				</h1>
-				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<p className='  px-4 py-6  hover:bg-black hover:text-white'>
 					Every object with its methods and properties contains an internal
 					and hidden property known as . The Prototypal Inheritance is a
 					feature in javascript used to add methods and properties in
@@ -81,11 +81,11 @@ const Blogs = () => {
 				</p>
 			</div>
 			{/* blog-4 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
 				<h1 className='text-center text-xl '>
 					Why we do not set the state directly in React?
 				</h1>
-				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<p className='  px-4 py-6  hover:bg-black hover:text-white'>
 					In react state is an important concept.Normally we call this as
 					"const [state,setState]= useState()".But if we set the state
 					value directly we won't find the updated value.State doesn't
@@ -96,13 +96,13 @@ const Blogs = () => {
 				</p>
 			</div>
 			{/* blog-5 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
 				<h1 className='text-center text-xl '>
 					You have an array of prooducts.Each object has a name ,price
 					,description etc.How to implement a search to find product by
 					name?
 				</h1>
-				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<p className='  px-4 py-6  hover:bg-black hover:text-white'>
 					To find the expected result I can make filter option to search
 					from the product. Ex= const filterd =
 					products.filter(product=/product.name.includes(searchText)) This
@@ -111,11 +111,11 @@ const Blogs = () => {
 				</p>
 			</div>
 			{/* blog-6 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4 mb-8'>
+			<div className='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4 mb-8'>
 				<h1 className='text-center text-xl '>
 					What is unit test?Why should we write unit tests?
 				</h1>
-				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+				<p className='  px-4 py-6  hover:bg-black hover:text-white'>
 					UNIT TESTING is a type of software testing where individual units
 					or components of a software are tested. The purpose is to
 					validate that each unit of the software code performs as
