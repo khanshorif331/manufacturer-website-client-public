@@ -10,7 +10,7 @@ const MyProfile = () => {
 	const [user] = useAuthState(auth)
 	const email = user.email
 
-	const url = `http://localhost:5000/userInfo?email=${email}`
+	const url = `https://rocky-coast-59066.herokuapp.com/userInfo?email=${email}`
 	const {
 		isLoading,
 		data: userInfo,

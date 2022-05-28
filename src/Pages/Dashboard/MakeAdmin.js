@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import Loading from '../Shared/Loading'
 
 const MakeAdmin = () => {
-	const url = 'http://localhost:5000/users'
+	const url = 'https://rocky-coast-59066.herokuapp.com/users'
 	const {
 		isLoading,
 		refetch,
@@ -13,8 +13,12 @@ const MakeAdmin = () => {
 	} = useQuery('users', () => fetch(url).then(res => res.json()))
 
 	const handleAdmin = (id, email) => {
-		fetch(`http://localhost:5000/user/admin/${email}`, {
+		fetch(`https://rocky-coast-59066.herokuapp.com/user/admin/${email}`, {
 			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+			},
 		})
 			.then(res => {
 				if (res.status === 403) {
@@ -48,7 +52,7 @@ const MakeAdmin = () => {
 			confirmButtonText: 'Yes, Delete User!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `http://localhost:5000/user/${id}`
+				const url = `https://rocky-coast-59066.herokuapp.com/user/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})

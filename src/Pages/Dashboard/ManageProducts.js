@@ -9,8 +9,16 @@ const ManageProducts = () => {
 		refetch,
 		data: products,
 	} = useQuery('products', () =>
-		fetch('http://localhost:5000/products').then(res => res.json())
+		fetch('https://rocky-coast-59066.herokuapp.com/products', {
+			headers: {
+				'content-type': 'application/json',
+				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+			},
+		}).then(res => res.json())
 	)
+	if (isLoading) {
+		return <Loading></Loading>
+	}
 
 	const handleDelete = id => {
 		// popup
@@ -24,9 +32,15 @@ const ManageProducts = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `http://localhost:5000/product/${id}`
+				const url = `https://rocky-coast-59066.herokuapp.com/product/${id}`
 				fetch(url, {
 					method: 'DELETE',
+					headers: {
+						'content-type': 'application/json',
+						authorization: `Bearer ${localStorage.getItem(
+							'accessToken'
+						)}`,
+					},
 				})
 					.then(res => res.json())
 					.then(data => {
@@ -35,17 +49,14 @@ const ManageProducts = () => {
 						}
 					})
 				Swal.fire(
-					'Order Cancelled!',
-					'Your order has been cancelled.',
+					'Deleted Successfully!',
+					'Your Product has been Deleted.',
 					'success'
 				)
 			}
 		})
 	}
 
-	if (isLoading) {
-		return <Loading></Loading>
-	}
 	return (
 		<div>
 			<h1 className='text-center text-xl font-bold text-primary'>
@@ -71,7 +82,7 @@ const ManageProducts = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{products.map((product, index) => (
+						{products?.map((product, index) => (
 							<tr key={product._id}>
 								<th>{index + 1}</th>
 								<td>

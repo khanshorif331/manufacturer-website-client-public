@@ -12,7 +12,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 		totalPrize,
 		status,
 		paid,
-		transactionId,
+		// transactionId,
 	} = order
 
 	const handleShip = id => {
@@ -26,9 +26,18 @@ const ManageOrder = ({ order, refetch, index }) => {
 			confirmButtonText: 'Yes, Ship this Order!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/order/shipped/${id}`, {
-					method: 'PUT',
-				})
+				fetch(
+					`https://rocky-coast-59066.herokuapp.com/order/shipped/${id}`,
+					{
+						method: 'PUT',
+						headers: {
+							'content-type': 'application/json',
+							authorization: `Bearer ${localStorage.getItem(
+								'accessToken'
+							)}`,
+						},
+					}
+				)
 					.then(res => {
 						if (res.status === 403) {
 							toast.error('Failed to make an admin')
@@ -61,7 +70,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `http://localhost:5000/myOrder/${id}`
+				const url = `https://rocky-coast-59066.herokuapp.com/myOrder/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})

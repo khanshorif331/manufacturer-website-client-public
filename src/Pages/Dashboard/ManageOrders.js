@@ -9,7 +9,9 @@ const ManageOrders = () => {
 		refetch,
 		data: orders,
 	} = useQuery('orders', () =>
-		fetch('http://localhost:5000/orders').then(res => res.json())
+		fetch('https://rocky-coast-59066.herokuapp.com/orders').then(res =>
+			res.json()
+		)
 	)
 
 	if (isLoading) {

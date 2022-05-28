@@ -23,7 +23,7 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `http://localhost:5000/myOrder/${id}`
+				const url = `https://rocky-coast-59066.herokuapp.com/myOrder/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})

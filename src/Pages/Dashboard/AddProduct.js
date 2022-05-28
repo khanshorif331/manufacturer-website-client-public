@@ -40,13 +40,13 @@ const AddProduct = () => {
 					}
 					setIsloading(true)
 					// send to your database
-					fetch('http://localhost:5000/product', {
+					fetch('https://rocky-coast-59066.herokuapp.com/product', {
 						method: 'POST',
 						headers: {
 							'content-type': 'application/json',
-							// authorization: `Bearer ${localStorage.getItem(
-							// 	'accessToken'
-							// )}`,
+							authorization: `Bearer ${localStorage.getItem(
+								'accessToken'
+							)}`,
 						},
 						body: JSON.stringify(product),
 					})

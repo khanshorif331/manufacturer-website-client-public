@@ -7,7 +7,7 @@ import MyOrder from './MyOrder'
 const MyOrders = () => {
 	const [user] = useAuthState(auth)
 	const email = user.email
-	const url = `http://localhost:5000/myOrders?email=${email}`
+	const url = `https://rocky-coast-59066.herokuapp.com/myOrders?email=${email}`
 
 	const {
 		isLoading,

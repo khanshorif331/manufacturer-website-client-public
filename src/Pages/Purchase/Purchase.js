@@ -13,7 +13,7 @@ const Purchase = () => {
 	const [error, setError] = useState('')
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/purchase/${id}`)
+		fetch(`https://rocky-coast-59066.herokuapp.com/purchase/${id}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data)
@@ -54,7 +54,7 @@ const Purchase = () => {
 			buyQuantity,
 			totalPrize,
 		}
-		fetch('http://localhost:5000/order', {
+		fetch('https://rocky-coast-59066.herokuapp.com/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

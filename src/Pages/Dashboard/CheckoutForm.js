@@ -16,11 +16,11 @@ const CheckoutForm = ({ order }) => {
 	const { _id, name, totalPrize, buyQuantity, email } = order
 
 	useEffect(() => {
-		fetch('http://localhost:5000/create-payment-intent', {
+		fetch('https://rocky-coast-59066.herokuapp.com/create-payment-intent', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
-				// authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 			},
 			body: JSON.stringify({ totalPrize }),
 		})
@@ -73,10 +73,11 @@ const CheckoutForm = ({ order }) => {
 				order: _id,
 				transactionId: paymentIntent.id,
 			}
-			fetch(`http://localhost:5000/order/${_id}`, {
+			fetch(`https://rocky-coast-59066.herokuapp.com/order/${_id}`, {
 				method: 'PATCH',
 				headers: {
 					'content-type': 'application/json',
+					authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 				},
 				body: JSON.stringify(payment),
 			})
