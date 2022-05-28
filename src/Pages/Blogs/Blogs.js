@@ -107,7 +107,28 @@ const Blogs = () => {
 					,description etc.How to implement a search to find product by
 					name?
 				</h1>
-				<p class='  px-4 py-6  hover:bg-black hover:text-white'></p>
+				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+					To find the expected result I can make filter option to search
+					from the product. Ex= const filterd =
+					products.filter(product=/product.name.includes(searchText)) This
+					filtered will give an array including all the objects which
+					includes the searchText.
+				</p>
+			</div>
+			{/* blog-6 */}
+			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+				<h1 className='text-center text-xl '>
+					What is unit test?Why should we write unit tests?
+				</h1>
+				<p class='  px-4 py-6  hover:bg-black hover:text-white'>
+					UNIT TESTING is a type of software testing where individual units
+					or components of a software are tested. The purpose is to
+					validate that each unit of the software code performs as
+					expected. Unit Testing is done during the development (coding
+					phase) of an application by the developers. Unit Tests isolate a
+					section of code and verify its correctness. A unit may be an
+					individual function, method, procedure, module, or object.
+				</p>
 			</div>
 		</div>
 	)
