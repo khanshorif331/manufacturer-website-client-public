@@ -126,7 +126,7 @@ const Login = () => {
 						{signInError}
 
 						<input
-							className='btn w-full max-w-xs'
+							className='btn w-full max-w-xs text-black hover:text-white'
 							type='submit'
 							value='Login'
 						/>
