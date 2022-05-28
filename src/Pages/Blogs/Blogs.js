@@ -100,6 +100,15 @@ const Blogs = () => {
 					across all components.So we don't set the state directly.
 				</p>
 			</div>
+			{/* blog-5 */}
+			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+				<h1 className='text-center text-xl '>
+					You have an array of prooducts.Each object has a name ,price
+					,description etc.How to implement a search to find product by
+					name?
+				</h1>
+				<p class='  px-4 py-6  hover:bg-black hover:text-white'></p>
+			</div>
 		</div>
 	)
 }
