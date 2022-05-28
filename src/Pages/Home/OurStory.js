@@ -1,4 +1,5 @@
 import React from 'react'
+import storyImg from '../../assets/manufacturer (1).jpg'
 
 const OurStory = () => {
 	return (
@@ -47,7 +48,8 @@ const OurStory = () => {
 				</div>
 				{/* need to add a photo */}
 				<div>
-					<p>hello</p>
+					<img className='w-full h-full' src={storyImg} alt='' />
+					{/* <p>hello</p> */}
 				</div>
 
 				<div className='px-4 mt-4 md:mt-0'>
