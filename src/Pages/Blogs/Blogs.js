@@ -6,15 +6,6 @@ const Blogs = () => {
 			<h1 className='text-center text-3xl font-bold text-primary my-4'>
 				Welcome to My Blogs
 			</h1>
-			{/* <div className='my-8 mx-10'>
-				<div className='bg-indigo-500'>
-					<h1 className='text-center text-xl text-white'>
-						How wil you improve the performance of a React Application?
-					</h1>
-					<p></p>
-				</div>
-			</div> */}
-			{/* blog */}
 			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-2'>
 				<h1 className='text-center text-xl '>
 					How wil you improve the performance of a React Application?
@@ -116,7 +107,7 @@ const Blogs = () => {
 				</p>
 			</div>
 			{/* blog-6 */}
-			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4'>
+			<div class='mockup-window border-2 border-secondary bg-base-200 mx-12 hover:bg-black hover:text-white my-4 mb-8'>
 				<h1 className='text-center text-xl '>
 					What is unit test?Why should we write unit tests?
 				</h1>
