@@ -77,11 +77,42 @@ const MyPortFolio = () => {
 					></progress>
 					60%
 				</p>
-				{/* <p>CSS</p>
-				<p>JAVASCRIPT</p>
-				<p>REACT</p>
-				<p>TAILWIND</p>
-				<p>EXPRESS JS</p> */}
+			</div>
+			<div>
+				<h1 className='text-2xl font-bold'>My Best Project</h1>
+				<ul>
+					<li>
+						1. Warehouse Management System{' '}
+						<a
+							className='ml-4 text-secondary'
+							href='https://warehouse-management-3798b.web.app/'
+							target='_blank'
+						>
+							Click Here to visit live website
+						</a>
+					</li>
+					<li>
+						2. Dream Event Photography{' '}
+						<a
+							className='ml-4 text-secondary'
+							href='https://dream-event-photography.web.app/'
+							target='_blank'
+						>
+							Click Here to visit live website
+						</a>
+					</li>
+
+					<li className='mb-10'>
+						3. Khan Manufacturing Company Website{' '}
+						<a
+							className='ml-4 text-secondary'
+							href='https://manufacturer-website-6ea45.web.app/'
+							target='_blank'
+						>
+							Click Here to visit live website
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	)
