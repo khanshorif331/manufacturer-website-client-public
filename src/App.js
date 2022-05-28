@@ -25,6 +25,7 @@ import ManageProducts from './Pages/Dashboard/ManageProducts'
 import ManageOrders from './Pages/Dashboard/ManageOrders'
 import Payment from './Pages/Dashboard/Payment'
 import RequireAdmin from './Pages/Login/RequireAdmin'
+import Footer from './Pages/Shared/Footer'
 
 function App() {
 	const [loading, setLoading] = useState(false)
