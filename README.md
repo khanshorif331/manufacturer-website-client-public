@@ -19,4 +19,4 @@ This is the project link [Manufacturer Website](https://manufacturer-website-6ea
 -  There are different roles in this project as like normal user,admin etc.
 -  There is a dashboard in which users can see their profile,orders and pay their orders and delete etc.
 -  For Admin there some extraa features.Admin can control the system.
--  All the data used from mongodb.
+-  All the data used from mongodb .
