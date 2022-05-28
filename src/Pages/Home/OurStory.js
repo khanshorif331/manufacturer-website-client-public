@@ -5,7 +5,7 @@ const OurStory = () => {
 	return (
 		<section className='my-12 bg-slate-300'>
 			<div className='mx-auto w-full md:w-1/2 pt-10'>
-				<h1 className='text-3xl text-center bg-primary text-white py-2 mt-4 font-bold'>
+				<h1 className='text-3xl text-center bg-primary text-white py-2 mt-4 font-bold  border-l-4 rounded-lg border-r-4 border-red-500'>
 					Our Story
 				</h1>
 				<p className='text-center my-2'>
