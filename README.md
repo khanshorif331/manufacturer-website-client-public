@@ -2,7 +2,7 @@
 
 This project was made by me.There is the live site link.Have a visit and have a great experience.
 
-This is the project link [Manufacturer Website](https://manufacturer-website-6ea45.web.app/).
+https://manufacturer-website-6ea45.web.app/
 
 ## Live Link 
 https://manufacturer-website-6ea45.web.app/
