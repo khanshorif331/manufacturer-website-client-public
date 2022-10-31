@@ -1,6 +1,6 @@
 # Khan Manufacturing Company Website
 
-This project was made by me.There is the live site link.Have a visit and have a great experience.
+It's a full stack project.There is the live site link.Have a visit and have a great experience.
 
 https://manufacturer-website-6ea45.web.app/
 
