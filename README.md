@@ -14,7 +14,7 @@ https://manufacturer-website-6ea45.web.app/
 -  React Query
 -  MongoDB
 -  Express
--  DaisyUI
+-  Daisyui
 
 ### Features In This Project
 
