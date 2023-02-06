@@ -9,9 +9,9 @@ const ManageOrders = () => {
 		refetch,
 		data: orders,
 	} = useQuery('orders', () =>
-		fetch('https://rocky-coast-59066.herokuapp.com/orders').then(res =>
-			res.json()
-		)
+		fetch(
+			'https://manufacturer-website-server-public.onrender.com/orders'
+		).then(res => res.json())
 	)
 
 	if (isLoading) {
@@ -20,15 +20,15 @@ const ManageOrders = () => {
 
 	return (
 		<div>
-			<h1 className='text-center text-2xl text-primary font-bold'>
+			<h1 className="text-center text-2xl text-primary font-bold">
 				Manage all orders
 			</h1>
-			<p className='text-center text-2xl text-primary font-bold my-4'>
+			<p className="text-center text-2xl text-primary font-bold my-4">
 				Total Orders : {orders.length}
 			</p>
 
-			<div className='overflow-x-auto'>
-				<table className='table table-zebra w-full'>
+			<div className="overflow-x-auto">
+				<table className="table table-zebra w-full">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>

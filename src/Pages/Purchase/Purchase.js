@@ -13,7 +13,9 @@ const Purchase = () => {
 	const [error, setError] = useState('')
 
 	useEffect(() => {
-		fetch(`https://rocky-coast-59066.herokuapp.com/purchase/${id}`)
+		fetch(
+			`https://manufacturer-website-server-public.onrender.com/purchase/${id}`
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data)
@@ -54,7 +56,7 @@ const Purchase = () => {
 			buyQuantity,
 			totalPrize,
 		}
-		fetch('https://rocky-coast-59066.herokuapp.com/order', {
+		fetch('https://manufacturer-website-server-public.onrender.com/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -73,15 +75,15 @@ const Purchase = () => {
 	}
 	return (
 		<div>
-			<h1 className='text-center text-2xl mt-10'>
+			<h1 className="text-center text-2xl mt-10">
 				Welcome {user?.displayName}!
 			</h1>
-			<p className='text-center'>
+			<p className="text-center">
 				Plese provide neccessary information to complete your order.
 			</p>
-			<div className='grid grid-cols-1 md:grid-cols-2 place-content-center min-h-[80%] border-2 mt-4 w-full md:w-1/2 mx-auto py-4 rounded-lg'>
-				<div className='mx-auto text-center leading-loose my-auto'>
-					<img className='w-1/2 mx-auto' src={product.img} alt='' />
+			<div className="grid grid-cols-1 md:grid-cols-2 place-content-center min-h-[80%] border-2 mt-4 w-full md:w-1/2 mx-auto py-4 rounded-lg">
+				<div className="mx-auto text-center leading-loose my-auto">
+					<img className="w-1/2 mx-auto" src={product.img} alt="" />
 					<p>{product.name}</p>
 					<p>Price :$ {product.price}/pc</p>
 					<p>Min Order : {product.minOrder} pcs</p>
@@ -89,76 +91,76 @@ const Purchase = () => {
 					<p>Total Price : $ {totalPrize}/= </p>
 				</div>
 				{/* form section starts here*/}
-				<div className='mx-auto'>
+				<div className="mx-auto">
 					<form onSubmit={handleSubmit}>
-						<div className='form-control w-full max-w-xs'>
+						<div className="form-control w-full max-w-xs">
 							<input
-								type='text'
-								placeholder='Type here'
-								className='input input-bordered w-full max-w-xs'
+								type="text"
+								placeholder="Type here"
+								className="input input-bordered w-full max-w-xs"
 								value={user?.displayName}
 								disabled
 							/>
 						</div>
-						<div className='form-control w-full max-w-xs'>
+						<div className="form-control w-full max-w-xs">
 							<input
-								type='text'
-								placeholder='Type here'
-								className='input input-bordered w-full max-w-xs'
+								type="text"
+								placeholder="Type here"
+								className="input input-bordered w-full max-w-xs"
 								value={user?.email}
 								disabled
 							/>
 						</div>
-						<div className='form-control w-full max-w-xs'>
-							<label className='label'>
-								<span className='label-text'>
+						<div className="form-control w-full max-w-xs">
+							<label className="label">
+								<span className="label-text">
 									What is your address?
 								</span>
 							</label>
 							<input
-								type='text'
-								name='address'
-								placeholder='Your Address'
-								className='input input-bordered w-full max-w-xs'
+								type="text"
+								name="address"
+								placeholder="Your Address"
+								className="input input-bordered w-full max-w-xs"
 								required
 							/>
 						</div>
-						<div className='form-control w-full max-w-xs'>
-							<label className='label'>
-								<span className='label-text'>
+						<div className="form-control w-full max-w-xs">
+							<label className="label">
+								<span className="label-text">
 									What is your Mobile Number?
 								</span>
 							</label>
 							<input
-								type='text'
-								name='phone'
-								placeholder='Your Mobile Number'
-								className='input input-bordered w-full max-w-xs'
+								type="text"
+								name="phone"
+								placeholder="Your Mobile Number"
+								className="input input-bordered w-full max-w-xs"
 								required
 							/>
 						</div>
-						<div className='form-control w-full max-w-xs'>
-							<label className='label'>
-								<span className='label-text'>How much to buy?</span>
+						<div className="form-control w-full max-w-xs">
+							<label className="label">
+								<span className="label-text">How much to buy?</span>
 							</label>
 							<input
 								onChange={e => setBuyQuantity(Number(e.target.value))}
-								type='number'
+								type="number"
 								value={buyQuantity}
-								placeholder='Enter Quantity'
-								className='input input-bordered w-full max-w-xs'
+								placeholder="Enter Quantity"
+								className="input input-bordered w-full max-w-xs"
 								required
 							/>
 						</div>
-						{error ? <p className='text-red-500 my-1'>{error}</p> : ''}
+						{error ? <p className="text-red-500 my-1">{error}</p> : ''}
 						<button
 							disabled={
 								buyQuantity < product.minOrder ||
 								buyQuantity > product.availableQuantiity
 							}
-							className='btn btn-primary cursor-pointer'
+							className="btn btn-primary cursor-pointer"
 						>
-							<input type='submit' value='Confirm Order' />
+							<input type="submit" value="Confirm Order" />
 						</button>
 					</form>
 				</div>

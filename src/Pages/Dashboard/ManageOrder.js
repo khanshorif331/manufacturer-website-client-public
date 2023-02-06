@@ -27,7 +27,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 		}).then(result => {
 			if (result.isConfirmed) {
 				fetch(
-					`https://rocky-coast-59066.herokuapp.com/order/shipped/${id}`,
+					`https://manufacturer-website-server-public.onrender.com/order/shipped/${id}`,
 					{
 						method: 'PUT',
 						headers: {
@@ -70,7 +70,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `https://rocky-coast-59066.herokuapp.com/myOrder/${id}`
+				const url = `https://manufacturer-website-server-public.onrender.com/myOrder/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})
@@ -90,7 +90,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 	}
 
 	return (
-		<tr className='bg-black'>
+		<tr className="bg-black">
 			<th>{index + 1}</th>
 			<th>{email}</th>
 			<td>{productName}</td>
@@ -98,11 +98,11 @@ const ManageOrder = ({ order, refetch, index }) => {
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
 			<td>{status === 'shipped' ? 'Shipped' : 'Pending'}</td>
-			<td>{paid ? <span className='text-success'>Paid</span> : 'Unpaid'}</td>
+			<td>{paid ? <span className="text-success">Paid</span> : 'Unpaid'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
-					className='btn btn-xs btn-warning'
+					className="btn btn-xs btn-warning"
 				>
 					Cancel
 				</button>
@@ -114,7 +114,7 @@ const ManageOrder = ({ order, refetch, index }) => {
 					<button
 						disabled={!paid}
 						onClick={() => handleShip(_id)}
-						className='btn btn-xs'
+						className="btn btn-xs"
 					>
 						Ship
 					</button>

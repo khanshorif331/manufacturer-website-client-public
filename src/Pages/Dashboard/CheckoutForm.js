@@ -16,14 +16,17 @@ const CheckoutForm = ({ order }) => {
 	const { _id, name, totalPrize, buyQuantity, email } = order
 
 	useEffect(() => {
-		fetch('https://rocky-coast-59066.herokuapp.com/create-payment-intent', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-			},
-			body: JSON.stringify({ totalPrize }),
-		})
+		fetch(
+			'https://manufacturer-website-server-public.onrender.com/create-payment-intent',
+			{
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+					authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+				},
+				body: JSON.stringify({ totalPrize }),
+			}
+		)
 			.then(res => res.json())
 			.then(data => {
 				if (data.clientSecret) {
@@ -73,14 +76,19 @@ const CheckoutForm = ({ order }) => {
 				order: _id,
 				transactionId: paymentIntent.id,
 			}
-			fetch(`https://rocky-coast-59066.herokuapp.com/order/${_id}`, {
-				method: 'PATCH',
-				headers: {
-					'content-type': 'application/json',
-					authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-				},
-				body: JSON.stringify(payment),
-			})
+			fetch(
+				`https://manufacturer-website-server-public.onrender.com/order/${_id}`,
+				{
+					method: 'PATCH',
+					headers: {
+						'content-type': 'application/json',
+						authorization: `Bearer ${localStorage.getItem(
+							'accessToken'
+						)}`,
+					},
+					body: JSON.stringify(payment),
+				}
+			)
 				.then(res => res.json())
 				.then(data => {
 					setLoading(false)
@@ -107,20 +115,20 @@ const CheckoutForm = ({ order }) => {
 					}}
 				/>
 				<button
-					className='btn btn-success btn-sm mt-4'
-					type='submit'
+					className="btn btn-success btn-sm mt-4"
+					type="submit"
 					disabled={!stripe || !clientSecret}
 				>
 					Pay
 				</button>
 			</form>
-			{cardError && <p className='text-red-500'> {cardError} </p>}
+			{cardError && <p className="text-red-500"> {cardError} </p>}
 			{success && (
-				<div className='text-green-500'>
+				<div className="text-green-500">
 					<p>{success}</p>
 					<p>
 						Your transaction id is :{' '}
-						<span className='text-orange-500 font-bold'>
+						<span className="text-orange-500 font-bold">
 							{transactionId}
 						</span>{' '}
 					</p>

@@ -23,7 +23,7 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `https://rocky-coast-59066.herokuapp.com/myOrder/${id}`
+				const url = `https://manufacturer-website-server-public.onrender.com/myOrder/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})
@@ -49,11 +49,11 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			<td>${price}</td>
 			<td>{buyQuantity} pcs</td>
 			<td>${totalPrize}</td>
-			<td>{paid ? <p className='text-success'>Paid</p> : 'Pending'}</td>
+			<td>{paid ? <p className="text-success">Paid</p> : 'Pending'}</td>
 			<td>
 				<button
 					onClick={() => handleDelete(_id)}
-					className='btn btn-xs btn-warning'
+					className="btn btn-xs btn-warning"
 				>
 					Cancel
 				</button>
@@ -61,17 +61,17 @@ const MyOrder = ({ myOrder, refetch, index }) => {
 			<td>
 				{!paid && (
 					<Link to={`/dashboard/payment/${_id}`}>
-						<button className='btn btn-xs'>Pay</button>
+						<button className="btn btn-xs">Pay</button>
 					</Link>
 				)}
 				{paid && (
 					<div>
 						<p>
-							<span className='text-success'>Paid</span>
+							<span className="text-success">Paid</span>
 						</p>
 						<p>
 							Transaction Id:{' '}
-							<span className='text-success'>{transactionId}</span>{' '}
+							<span className="text-success">{transactionId}</span>{' '}
 						</p>
 					</div>
 				)}

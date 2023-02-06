@@ -18,7 +18,7 @@ const MyReviews = () => {
 			img: user.photoURL,
 			rating: rating,
 		}
-		fetch('https://rocky-coast-59066.herokuapp.com/review', {
+		fetch('https://manufacturer-website-server-public.onrender.com/review', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -42,87 +42,87 @@ const MyReviews = () => {
 	}
 	return (
 		<div>
-			<h1 className='text-2xl text-primary text-center font-bold'>
+			<h1 className="text-2xl text-primary text-center font-bold">
 				Give Us Feedback Here
 			</h1>
-			<div className='w-full md:w-1/2 mx-auto border-2 my-6 py-6 border-primary rounded-md'>
+			<div className="w-full md:w-1/2 mx-auto border-2 my-6 py-6 border-primary rounded-md">
 				<form onSubmit={handleSubmit}>
 					<input
-						type='text'
-						className='input input-bordered input-sm w-1/2 mx-auto block text-xl font-bold'
+						type="text"
+						className="input input-bordered input-sm w-1/2 mx-auto block text-xl font-bold"
 						value={user.displayName}
 						disabled
 					/>
 					<input
-						type='text'
-						className='input input-bordered input-sm w-1/2 mx-auto block'
+						type="text"
+						className="input input-bordered input-sm w-1/2 mx-auto block"
 						value={user.email}
 						disabled
 					/>
-					<label className='label w-1/2 mx-auto'>
-						<span className='label-text'>What is your designation?</span>
+					<label className="label w-1/2 mx-auto">
+						<span className="label-text">What is your designation?</span>
 					</label>
 					<input
-						name='profession'
-						type='text'
-						placeholder='Enter your designation'
-						className='input input-bordered input-sm w-1/2 mx-auto block'
+						name="profession"
+						type="text"
+						placeholder="Enter your designation"
+						className="input input-bordered input-sm w-1/2 mx-auto block"
 						required
 					/>
-					<p className='w-1/2 mx-auto mt-2'>Give us Rating</p>
+					<p className="w-1/2 mx-auto mt-2">Give us Rating</p>
 					<div
 						onChange={handleRating}
-						className='rating mx-auto w-1/2 block'
+						className="rating mx-auto w-1/2 block"
 						required
 					>
 						<input
-							type='radio'
-							name='rating-2'
-							className='mask mask-star-2 bg-orange-400'
-							value='1'
+							type="radio"
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+							value="1"
 						/>
 						<input
-							type='radio'
-							name='rating-2'
-							className='mask mask-star-2 bg-orange-400'
-							value='2'
+							type="radio"
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+							value="2"
 						/>
 						<input
-							type='radio'
-							name='rating-2'
-							className='mask mask-star-2 bg-orange-400'
-							value='3'
+							type="radio"
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+							value="3"
 						/>
 						<input
-							type='radio'
-							name='rating-2'
-							className='mask mask-star-2 bg-orange-400'
-							value='4'
+							type="radio"
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+							value="4"
 						/>
 						<input
-							type='radio'
-							name='rating-2'
-							className='mask mask-star-2 bg-orange-400'
-							value='5'
+							type="radio"
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+							value="5"
 							// defualtchecked
 						/>
 					</div>
 
-					<div className='form-control'>
-						<label className='label w-1/2 mx-auto'>
-							<span className='label-text'>Your Review</span>
+					<div className="form-control">
+						<label className="label w-1/2 mx-auto">
+							<span className="label-text">Your Review</span>
 						</label>
 						<textarea
-							name='reviewText'
-							className='textarea textarea-bordered h-24 w-1/2 mx-auto'
-							placeholder='Write Your Review Here'
+							name="reviewText"
+							className="textarea textarea-bordered h-24 w-1/2 mx-auto"
+							placeholder="Write Your Review Here"
 							required
 						></textarea>
 					</div>
 					<input
-						className='btn btn-primary w-1/2 mx-auto block my-4'
-						type='submit'
-						value='Submit'
+						className="btn btn-primary w-1/2 mx-auto block my-4"
+						type="submit"
+						value="Submit"
 					/>
 				</form>
 			</div>

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import Loading from '../Shared/Loading'
 
 const MakeAdmin = () => {
-	const url = 'https://rocky-coast-59066.herokuapp.com/users'
+	const url = 'https://manufacturer-website-server-public.onrender.com/users'
 	const {
 		isLoading,
 		refetch,
@@ -13,13 +13,16 @@ const MakeAdmin = () => {
 	} = useQuery('users', () => fetch(url).then(res => res.json()))
 
 	const handleAdmin = (id, email) => {
-		fetch(`https://rocky-coast-59066.herokuapp.com/user/admin/${email}`, {
-			method: 'PUT',
-			headers: {
-				'content-type': 'application/json',
-				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-			},
-		})
+		fetch(
+			`https://manufacturer-website-server-public.onrender.com/user/admin/${email}`,
+			{
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json',
+					authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+				},
+			}
+		)
 			.then(res => {
 				if (res.status === 403) {
 					toast.error('Failed to make an admin')
@@ -52,7 +55,7 @@ const MakeAdmin = () => {
 			confirmButtonText: 'Yes, Delete User!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `https://rocky-coast-59066.herokuapp.com/user/${id}`
+				const url = `https://manufacturer-website-server-public.onrender.com/user/${id}`
 				fetch(url, {
 					method: 'DELETE',
 				})
@@ -76,13 +79,13 @@ const MakeAdmin = () => {
 	}
 	return (
 		<div>
-			<h1 className='text-center text-xl text-primary'>Make Admin</h1>
-			<h1 className='text-center text-primary my-2'>
+			<h1 className="text-center text-xl text-primary">Make Admin</h1>
+			<h1 className="text-center text-primary my-2">
 				Total Users : {users.length}
 			</h1>
 
-			<div className='overflow-x-auto'>
-				<table className='table table-zebra w-full'>
+			<div className="overflow-x-auto">
+				<table className="table table-zebra w-full">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
@@ -102,7 +105,7 @@ const MakeAdmin = () => {
 								<td>
 									<button
 										onClick={() => handleDelete(user._id)}
-										className='btn btn-xs btn-warning'
+										className="btn btn-xs btn-warning"
 									>
 										Delete User
 									</button>
@@ -115,7 +118,7 @@ const MakeAdmin = () => {
 											onClick={() =>
 												handleAdmin(user._id, user.email)
 											}
-											className='btn btn-xs'
+											className="btn btn-xs"
 										>
 											Make Admin
 										</button>

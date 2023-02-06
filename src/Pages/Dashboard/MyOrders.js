@@ -7,7 +7,7 @@ import MyOrder from './MyOrder'
 const MyOrders = () => {
 	const [user] = useAuthState(auth)
 	const email = user.email
-	const url = `https://rocky-coast-59066.herokuapp.com/myOrders?email=${email}`
+	const url = `https://manufacturer-website-server-public.onrender.com/myOrders?email=${email}`
 
 	const {
 		isLoading,
@@ -20,13 +20,13 @@ const MyOrders = () => {
 	}
 	return (
 		<div>
-			<h1 className='text-center text-xl font-bold text-primary'>
+			<h1 className="text-center text-xl font-bold text-primary">
 				{' '}
 				Total Orders : {myOrders.length}{' '}
 			</h1>
 
-			<div className='overflow-x-auto'>
-				<table className='table table-zebra w-full'>
+			<div className="overflow-x-auto">
+				<table className="table table-zebra w-full">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>

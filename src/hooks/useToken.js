@@ -6,13 +6,16 @@ const useToken = user => {
 		const email = user?.user?.email
 		const currentUser = { email: email }
 		if (email) {
-			fetch(`https://rocky-coast-59066.herokuapp.com/user/${email}`, {
-				method: 'PUT',
-				headers: {
-					'content-type': 'application/json',
-				},
-				body: JSON.stringify(currentUser),
-			})
+			fetch(
+				`https://manufacturer-website-server-public.onrender.com/user/${email}`,
+				{
+					method: 'PUT',
+					headers: {
+						'content-type': 'application/json',
+					},
+					body: JSON.stringify(currentUser),
+				}
+			)
 				.then(res => res.json())
 				.then(data => {
 					const accessToken = data.token

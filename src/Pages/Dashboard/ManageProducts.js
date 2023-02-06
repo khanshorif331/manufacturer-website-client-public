@@ -9,12 +9,15 @@ const ManageProducts = () => {
 		refetch,
 		data: products,
 	} = useQuery('products', () =>
-		fetch('https://rocky-coast-59066.herokuapp.com/products', {
-			headers: {
-				'content-type': 'application/json',
-				authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-			},
-		}).then(res => res.json())
+		fetch(
+			'https://manufacturer-website-server-public.onrender.com/products',
+			{
+				headers: {
+					'content-type': 'application/json',
+					authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+				},
+			}
+		).then(res => res.json())
 	)
 	if (isLoading) {
 		return <Loading></Loading>
@@ -32,7 +35,7 @@ const ManageProducts = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then(result => {
 			if (result.isConfirmed) {
-				const url = `https://rocky-coast-59066.herokuapp.com/product/${id}`
+				const url = `https://manufacturer-website-server-public.onrender.com/product/${id}`
 				fetch(url, {
 					method: 'DELETE',
 					headers: {
@@ -59,15 +62,15 @@ const ManageProducts = () => {
 
 	return (
 		<div>
-			<h1 className='text-center text-xl font-bold text-primary'>
+			<h1 className="text-center text-xl font-bold text-primary">
 				Manage all products
 			</h1>
-			<p className='text-center text-xl font-bold text-primary my-2'>
+			<p className="text-center text-xl font-bold text-primary my-2">
 				Total Products : {products.length}
 			</p>
 
-			<div className='overflow-x-auto'>
-				<table className='table table-zebra w-full'>
+			<div className="overflow-x-auto">
+				<table className="table table-zebra w-full">
 					{/* <!-- head --> */}
 					<thead>
 						<tr>
@@ -86,11 +89,11 @@ const ManageProducts = () => {
 							<tr key={product._id}>
 								<th>{index + 1}</th>
 								<td>
-									<div className='avatar'>
-										<div className='w-16 rounded'>
+									<div className="avatar">
+										<div className="w-16 rounded">
 											<img
 												src={product.img}
-												alt='Tailwind-CSS-Avatar-component'
+												alt="Tailwind-CSS-Avatar-component"
 											/>
 										</div>
 									</div>
@@ -102,13 +105,13 @@ const ManageProducts = () => {
 								<td>
 									<button
 										onClick={() => handleDelete(product._id)}
-										className='btn btn-xs btn-warning'
+										className="btn btn-xs btn-warning"
 									>
 										Delete
 									</button>
 								</td>
 								<td>
-									<button className='btn btn-xs'>Update</button>
+									<button className="btn btn-xs">Update</button>
 								</td>
 							</tr>
 						))}

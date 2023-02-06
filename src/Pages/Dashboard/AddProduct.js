@@ -40,16 +40,19 @@ const AddProduct = () => {
 					}
 					setIsloading(true)
 					// send to your database
-					fetch('https://rocky-coast-59066.herokuapp.com/product', {
-						method: 'POST',
-						headers: {
-							'content-type': 'application/json',
-							authorization: `Bearer ${localStorage.getItem(
-								'accessToken'
-							)}`,
-						},
-						body: JSON.stringify(product),
-					})
+					fetch(
+						'https://manufacturer-website-server-public.onrender.com/product',
+						{
+							method: 'POST',
+							headers: {
+								'content-type': 'application/json',
+								authorization: `Bearer ${localStorage.getItem(
+									'accessToken'
+								)}`,
+							},
+							body: JSON.stringify(product),
+						}
+					)
 						.then(res => res.json())
 						.then(inserted => {
 							setIsloading(false)
@@ -70,21 +73,21 @@ const AddProduct = () => {
 
 	return (
 		<div>
-			<h1 className='text-2xl text-center font-bold text-primary'>
+			<h1 className="text-2xl text-center font-bold text-primary">
 				Add A New Product
 			</h1>
-			<div className='text-center lg:text-left w-full md:w-1/2 mx-auto my-4'>
+			<div className="text-center lg:text-left w-full md:w-1/2 mx-auto my-4">
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<div className='w-full border-2 card  shadow-2xl bg-base-100 p-10'>
+					<div className="w-full border-2 card  shadow-2xl bg-base-100 p-10">
 						{/* product name start */}
-						<div className='form-control w-full block '>
-							<label className='label'>
-								<span className='label-text'>Product Name</span>
+						<div className="form-control w-full block ">
+							<label className="label">
+								<span className="label-text">Product Name</span>
 							</label>
 							<input
-								type='text'
-								placeholder='Product Name'
-								className='input input-bordered w-full '
+								type="text"
+								placeholder="Product Name"
+								className="input input-bordered w-full "
 								{...register('name', {
 									required: {
 										value: true,
@@ -92,9 +95,9 @@ const AddProduct = () => {
 									},
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.name?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.name.message}
 									</span>
 								)}
@@ -102,14 +105,14 @@ const AddProduct = () => {
 						</div>
 
 						{/* price info start */}
-						<div className='form-control w-full '>
-							<label className='label'>
-								<span className='label-text'>Price Per Unit</span>
+						<div className="form-control w-full ">
+							<label className="label">
+								<span className="label-text">Price Per Unit</span>
 							</label>
 							<input
-								type='number'
-								placeholder='Product Per Unit'
-								className='input input-bordered w-full'
+								type="number"
+								placeholder="Product Per Unit"
+								className="input input-bordered w-full"
 								{...register('price', {
 									required: {
 										value: true,
@@ -121,25 +124,25 @@ const AddProduct = () => {
 									// },
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.price?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.price.message}
 									</span>
 								)}
 							</label>
 						</div>
 						{/* minOrder info start */}
-						<div className='form-control w-full '>
-							<label className='label'>
-								<span className='label-text'>
+						<div className="form-control w-full ">
+							<label className="label">
+								<span className="label-text">
 									Minimum Order Quantity
 								</span>
 							</label>
 							<input
-								type='number'
-								placeholder='Minimum Order Quantity'
-								className='input input-bordered w-full'
+								type="number"
+								placeholder="Minimum Order Quantity"
+								className="input input-bordered w-full"
 								{...register('minOrder', {
 									required: {
 										value: true,
@@ -151,23 +154,23 @@ const AddProduct = () => {
 									// },
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.minOrder?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.minOrder.message}
 									</span>
 								)}
 							</label>
 						</div>
 						{/* available quantity info start */}
-						<div className='form-control w-full '>
-							<label className='label'>
-								<span className='label-text'>Available Quantity</span>
+						<div className="form-control w-full ">
+							<label className="label">
+								<span className="label-text">Available Quantity</span>
 							</label>
 							<input
-								type='number'
-								placeholder='Available Quantity'
-								className='input input-bordered w-full'
+								type="number"
+								placeholder="Available Quantity"
+								className="input input-bordered w-full"
 								{...register('availableQuantiity', {
 									required: {
 										value: true,
@@ -175,23 +178,23 @@ const AddProduct = () => {
 									},
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.availableQuantiity?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.availableQuantiity.message}
 									</span>
 								)}
 							</label>
 						</div>
 						{/* description info start */}
-						<div className='form-control w-full '>
-							<label className='label'>
-								<span className='label-text'>Description</span>
+						<div className="form-control w-full ">
+							<label className="label">
+								<span className="label-text">Description</span>
 							</label>
 							<textarea
-								type='text'
-								placeholder='Available Quantity'
-								className='input input-bordered w-full'
+								type="text"
+								placeholder="Available Quantity"
+								className="input input-bordered w-full"
 								{...register('description', {
 									required: {
 										value: true,
@@ -199,9 +202,9 @@ const AddProduct = () => {
 									},
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.description?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.description.message}
 									</span>
 								)}
@@ -209,13 +212,13 @@ const AddProduct = () => {
 						</div>
 
 						{/*img section starts  */}
-						<div className='form-control w-full'>
-							<label className='label'>
-								<span className='label-text'>Product Photo</span>
+						<div className="form-control w-full">
+							<label className="label">
+								<span className="label-text">Product Photo</span>
 							</label>
 							<input
-								type='file'
-								className='input input-bordered w-full'
+								type="file"
+								className="input input-bordered w-full"
 								{...register('img', {
 									required: {
 										value: true,
@@ -223,9 +226,9 @@ const AddProduct = () => {
 									},
 								})}
 							/>
-							<label className='label'>
+							<label className="label">
 								{errors.img?.type === 'required' && (
-									<span className='label-text-alt text-red-500'>
+									<span className="label-text-alt text-red-500">
 										{errors.img.message}
 									</span>
 								)}
@@ -233,9 +236,9 @@ const AddProduct = () => {
 						</div>
 
 						<input
-							className='btn w-full'
-							type='submit'
-							value='Add Product'
+							className="btn w-full"
+							type="submit"
+							value="Add Product"
 						/>
 					</div>
 				</form>

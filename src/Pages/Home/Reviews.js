@@ -17,19 +17,19 @@ import Loading from '../Shared/Loading'
 
 const Reviews = () => {
 	const { isLoading, data: reviews } = useQuery('reviews', () =>
-		fetch('https://rocky-coast-59066.herokuapp.com/reviews').then(res =>
-			res.json()
-		)
+		fetch(
+			'https://manufacturer-website-server-public.onrender.com/reviews'
+		).then(res => res.json())
 	)
 	if (isLoading) {
 		return <Loading></Loading>
 	}
 	return (
 		<div>
-			<h1 className='text-center text-3xl bg-primary text-white rounded-md py-2 w-full md:w-1/2 mx-auto font-bold border-r-4 border-red-500 border-l-4'>
+			<h1 className="text-center text-3xl bg-primary text-white rounded-md py-2 w-full md:w-1/2 mx-auto font-bold border-r-4 border-red-500 border-l-4">
 				What People Say About Us
 			</h1>
-			<p className='w-full md:w-1/2 mx-auto text-center mt-5'>
+			<p className="w-full md:w-1/2 mx-auto text-center mt-5">
 				We are a company with growing industry.We are serving our clients
 				for many years with love,respect and care.They are also showing us
 				good vibe.So let's have a look of some of our happy clients
@@ -54,62 +54,62 @@ const Reviews = () => {
 					}}
 					pagination={true}
 					modules={[Autoplay, EffectCoverflow, Pagination]}
-					className='mySwiper'
+					className="mySwiper"
 				>
 					{reviews.map(review => (
 						<SwiperSlide key={review._id}>
-							<div className='card max-h-[400px] bg-base-100'>
-								<div className='avatar mx-auto pt-10'>
+							<div className="card max-h-[400px] bg-base-100">
+								<div className="avatar mx-auto pt-10">
 									{review?.img ? (
-										<div className='w-24 mask mask-squircle'>
-											<img src={review.img} alt='review' />
+										<div className="w-24 mask mask-squircle">
+											<img src={review.img} alt="review" />
 										</div>
 									) : (
-										<div className='avatar placeholder'>
-											<div className='bg-neutral-focus text-neutral-content rounded-full w-24'>
-												<span className='text-3xl'>
+										<div className="avatar placeholder">
+											<div className="bg-neutral-focus text-neutral-content rounded-full w-24">
+												<span className="text-3xl">
 													{review.name.slice(0, 1)}
 												</span>
 											</div>
 										</div>
 									)}
 								</div>
-								<div className='card-body items-center text-center'>
-									<p className='text-2xl font-bold text-primary'>
+								<div className="card-body items-center text-center">
+									<p className="text-2xl font-bold text-primary">
 										{review.name}
 									</p>
-									<p className='text-xl font-bold'>
+									<p className="text-xl font-bold">
 										{review.profession}
 									</p>
 									<div>
-										<div className='rating rating-sm'>
+										<div className="rating rating-sm">
 											<input
-												type='radio'
-												name='rating-2'
-												className='mask mask-star-2 bg-orange-400'
+												type="radio"
+												name="rating-2"
+												className="mask mask-star-2 bg-orange-400"
 											/>
 											<input
-												type='radio'
-												name='rating-2'
-												className='mask mask-star-2 bg-orange-400'
+												type="radio"
+												name="rating-2"
+												className="mask mask-star-2 bg-orange-400"
 											/>
 											<input
-												type='radio'
-												name='rating-2'
-												className='mask mask-star-2 bg-orange-400'
+												type="radio"
+												name="rating-2"
+												className="mask mask-star-2 bg-orange-400"
 											/>
 											<input
 												readOnly
-												type='radio'
-												name='rating-2'
-												className='mask mask-star-2 bg-orange-400'
+												type="radio"
+												name="rating-2"
+												className="mask mask-star-2 bg-orange-400"
 												checked={review.rating == 4}
 											/>
 											<input
 												readOnly
-												type='radio'
-												name='rating-2'
-												className='mask mask-star-2 bg-orange-400'
+												type="radio"
+												name="rating-2"
+												className="mask mask-star-2 bg-orange-400"
 												checked={review.rating == 5}
 											/>
 										</div>{' '}

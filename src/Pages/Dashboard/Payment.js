@@ -15,7 +15,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
 	const [user] = useAuthState(auth)
 	const { id } = useParams()
-	const url = `https://rocky-coast-59066.herokuapp.com/order/${id}`
+	const url = `https://manufacturer-website-server-public.onrender.com/order/${id}`
 	const { data: order, isLoading } = useQuery(['order', 'id'], () =>
 		fetch(url, {
 			method: 'GET',
@@ -31,16 +31,16 @@ const Payment = () => {
 
 	return (
 		<div>
-			<div className='card w-50 max-w-md bg-base-100 shadow-xl my-12'>
-				<div className='card-body'>
-					<p className='text-success font-bold'>
+			<div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+				<div className="card-body">
+					<p className="text-success font-bold">
 						{' '}
 						Hello, {user.displayName}{' '}
 					</p>
-					<h2 className='card-title'>Please Pay for : {order.name} </h2>
+					<h2 className="card-title">Please Pay for : {order.name} </h2>
 					<p>
 						You ordered
-						<span className='text-orange-700'>
+						<span className="text-orange-700">
 							{order.buyQuantity} pieces
 						</span>{' '}
 						costs {''}
@@ -49,8 +49,8 @@ const Payment = () => {
 					<p>Please Pay : ${order.totalPrize}</p>
 				</div>
 			</div>
-			<div className='card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100'>
-				<div className='card-body'>
+			<div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+				<div className="card-body">
 					<Elements stripe={stripePromise}>
 						<CheckoutForm order={order} />
 					</Elements>
